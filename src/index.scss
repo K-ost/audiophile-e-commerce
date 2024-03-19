@@ -29,6 +29,8 @@ body {
   line-height: 25px;
   margin: 0;
 }
+img { max-width: 100%; }
+.color-primary { color: var(--color-primary); }
 
 /* headers */
 h1, h2, h3, h4, h5, h6 {
@@ -98,5 +100,17 @@ h6 {
 }
 
 
+/* Responsive */
+@media screen and (max-width: 1160px) {
+  .container { width: 1020px; }
+}
+
+@media screen and (max-width: 1020px) {
+  .container { width: 690px; }
+}
+
+@media screen and (max-width: 750px) {
+  .container { width: auto; }
+}
 
 
