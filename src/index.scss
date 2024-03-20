@@ -94,9 +94,13 @@ h6 {
 }
 
 
+/* btns */
+.more-link::before { background-image: url(./assets/svg/chevron.svg); }
+
+
 /* forms */
 .radioBtn {
-  background: url(./assets/radio.svg) -9999px no-repeat;
+  background: url(./assets/svg/radio.svg) -9999px no-repeat;
   &:focus { background-position: center; }
 }
 

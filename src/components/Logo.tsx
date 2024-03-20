@@ -1,5 +1,6 @@
 import styled from "styled-components"
-import logo from "../assets/logo.svg"
+import logo from "../assets/svg/logo.svg"
+import { Link } from "react-router-dom"
 
 // Styles
 const LogoBox = styled.div`
@@ -10,7 +11,7 @@ const LogoBox = styled.div`
 const Logo: React.FC = () => {
   return (
     <LogoBox>
-      <img src={logo} alt="" />
+      <Link to="/"><img src={logo} alt="" /></Link>
     </LogoBox>
   )
 }

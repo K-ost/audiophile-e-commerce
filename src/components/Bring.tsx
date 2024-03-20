@@ -8,6 +8,7 @@ const Grid = styled.div`
   grid-column-gap: 120px;
   align-items: center;
   h2 { margin: 0 0 32px; }
+  margin: 0 0 200px;
   img { border-radius: 8px; display: block; }
   @media screen and (max-width: 1020px) {
     grid-template-columns: 1fr;
