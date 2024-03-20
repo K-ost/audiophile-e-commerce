@@ -5,6 +5,7 @@ import Cart from "./cart/Cart"
 import Modal from "../ui/Modal"
 import { useState } from "react"
 import CartModal from "./cart/CartModal"
+import Bars from "../ui/Bars"
 
 // Styles
 const HeaderBox = styled.header`
@@ -13,29 +14,36 @@ const HeaderBox = styled.header`
   .container {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     height: 97px;
     position: relative;
   }
 `
 const HeaderNav = styled.div`
+  margin: 0 0 0 auto;
   @media screen and (max-width: 1020px) {
     display: none;
   }
 `
+const HeaderCart = styled.div`
+  margin: 0 0 0 auto;
+`
 
 const Header: React.FC = () => {
   const [modal, setModal] = useState<boolean>(false)
+  const [nav, setNav] = useState<boolean>(false)
 
   return (
     <>
       <HeaderBox>
         <div className="container">
+          <Bars open={setNav} />
           <Logo />
           <HeaderNav>
             <Nav />
           </HeaderNav>
-          <Cart click={setModal} modal={modal} />
+          <HeaderCart>
+            <Cart click={setModal} modal={modal} />
+          </HeaderCart>
         </div>
       </HeaderBox>
       <Modal modal={modal} close={setModal} position="top-right">

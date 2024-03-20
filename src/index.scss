@@ -104,22 +104,28 @@ h6 {
 /* grid */
 .container {
   margin: 0 auto;
-  padding: 0 calc(var(--gap) / 2);
-  width: calc(var(--container) + var(--gap));
+  width: var(--container);
 }
 
 
 /* Responsive */
 @media screen and (max-width: 1160px) {
-  .container { width: 1020px; }
+  :root {
+    --container: 1020px;
+  }
 }
 
 @media screen and (max-width: 1020px) {
-  .container { width: 690px; }
+  :root {
+    --container: 690px;
+  }
 }
 
 @media screen and (max-width: 750px) {
-  .container { width: auto; }
+  :root {
+    --container: auto;
+  }
+  .container { padding: 0 24px; }
 }
 
 

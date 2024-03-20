@@ -31,6 +31,15 @@ const Popup = styled.div<{ $open: boolean, $position: ModalPositionType }>`
   visibility: ${props => props.$open ? 'visible' : 'hidden'};
   transition: var(--animate);
   z-index: 1000;
+  @media screen and (max-width: 750px) {
+    ${props => props.$position === 'top-right' && `
+      top: 114px;
+      left: 24px;
+      right: 24px;
+      width: auto;
+      margin: 0;
+    `
+  }
 `
 const Overlay = styled.div<{ $open: boolean }>`
   background: rgba(0,0,0,0.5);
