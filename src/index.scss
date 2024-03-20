@@ -28,9 +28,18 @@ body {
   font-weight: 400;
   line-height: 25px;
   margin: 0;
+  &.modal-opened {
+    height: 100%;
+    overflow: hidden;
+  }
 }
 img { max-width: 100%; }
+b, strong { font-weight: 700; }
 .color-primary { color: var(--color-primary); }
+a {
+  color: var(--color-primary);
+  &:hover { text-decoration: none; }
+}
 
 /* headers */
 h1, h2, h3, h4, h5, h6 {

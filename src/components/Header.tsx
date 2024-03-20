@@ -2,10 +2,14 @@ import styled from "styled-components"
 import Nav from "./Nav"
 import Logo from "./Logo"
 import Cart from "./cart/Cart"
+import Modal from "../ui/Modal"
+import { useState } from "react"
+import CartModal from "./cart/CartModal"
 
 // Styles
 const HeaderBox = styled.header`
   background: var(--color-black);
+  position: relative;
   .container {
     display: flex;
     align-items: center;
@@ -21,16 +25,23 @@ const HeaderNav = styled.div`
 `
 
 const Header: React.FC = () => {
+  const [modal, setModal] = useState<boolean>(false)
+
   return (
-    <HeaderBox>
-      <div className="container">
-        <Logo />
-        <HeaderNav>
-          <Nav />
-        </HeaderNav>
-        <Cart />
-      </div>
-    </HeaderBox>
+    <>
+      <HeaderBox>
+        <div className="container">
+          <Logo />
+          <HeaderNav>
+            <Nav />
+          </HeaderNav>
+          <Cart click={setModal} modal={modal} />
+        </div>
+      </HeaderBox>
+      <Modal modal={modal} close={setModal} position="top-right">
+        <CartModal close={setModal} />
+      </Modal>
+    </>
   )
 }
 
