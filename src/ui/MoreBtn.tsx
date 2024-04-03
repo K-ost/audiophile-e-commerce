@@ -11,6 +11,7 @@ const More = styled(Link)`
   color: var(--color-text);
   font-size: 13px;
   font-weight: 700;
+  line-height: 16px;
   letter-spacing: 1px;
   position: relative;
   padding-right: 20px;
