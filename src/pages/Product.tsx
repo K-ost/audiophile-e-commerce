@@ -1,6 +1,6 @@
 const Product: React.FC = () => {
   return (
-    <div>
+    <div className="container">
       <h1>Product</h1>
     </div>
   )

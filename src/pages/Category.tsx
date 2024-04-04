@@ -4,7 +4,7 @@ const Category: React.FC = () => {
   const { cat } = useParams()
 
   return (
-    <div>
+    <div className="container">
       <h1>{cat}</h1>
     </div>
   )

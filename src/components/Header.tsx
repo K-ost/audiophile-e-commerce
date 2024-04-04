@@ -9,7 +9,7 @@ import Bars from "../ui/Bars"
 
 // Styles
 const HeaderBox = styled.header`
-  background: var(--color-black);
+  background: #141414;
   position: relative;
   .container {
     display: flex;
