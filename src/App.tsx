@@ -1,5 +1,4 @@
 import { Route, Routes } from 'react-router-dom'
-import Header from './components/Header'
 import Home from './pages/Home'
 import Category from './pages/Category'
 import Product from './pages/Product'
@@ -9,7 +8,6 @@ import Footer from './components/Footer'
 function App() {
   return (
     <div className="app">
-      <Header />
       <Routes>
         <Route index path="/" element={<Home />} />
         <Route path="/:cat" element={<Category />} />

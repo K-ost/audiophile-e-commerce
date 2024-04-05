@@ -1,24 +1,52 @@
 import styled from "styled-components"
 import Btn from "../ui/Btn"
 import img from "../assets/imgs/xx99.png"
+import Header, { HeaderBox } from "./Header"
+
+type HeadType = 'simple' | 'title' | 'banner'
 
 interface IHeadBanner {
-
+  title?: string
+  type?: HeadType
 }
 
 // Styles
-const Head = styled.div`
+const Head = styled.div<{ $type: HeadType }>`
   background: #141414;
   margin: 0 0 120px;
+  position: relative;
   .container {
-    border-top: 1px solid #373737;
     align-items: center;
     display: flex;
     justify-content: space-between;
   }
+  ${HeaderBox} {
+    ${props => props.$type === 'banner' && `
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    `}
+    .container {
+      ${props => props.$type !== 'simple' && 'border-bottom: 1px solid #313131;'}
+      height: 97px;
+    }
+  }
+`
+const HeadName = styled.div`
+  color: var(--color-white);
+  display: block !important;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 44px;
+  letter-spacing: 1.43px;
+  padding: 97px 0;
+  text-align: center;
+  text-transform: uppercase;
 `
 const Detail = styled.div`
   width: 400px;
+  padding-top: 97px;
 `
 const HeadNew = styled.div`
   color: #898989;
@@ -43,10 +71,11 @@ const HeadText = styled.div`
   max-width: 349px;
 `
 
-const HeadBanner: React.FC<IHeadBanner> = () => {
+const HeadBanner: React.FC<IHeadBanner> = ({ title, type = 'simple' }) => {
   return (
-    <Head>
-      <div className="container">
+    <Head $type={type}>
+      <Header />
+      {type === 'banner' && <div className="container">
         <Detail>
           <HeadNew>NEW PRODUCT</HeadNew>
           <HeadTitle>XX99 Mark II Headphones</HeadTitle>
@@ -54,7 +83,8 @@ const HeadBanner: React.FC<IHeadBanner> = () => {
           <Btn value="See Product" />
         </Detail>
         <img src={img} alt="" />
-      </div>
+      </div>}
+      {type === 'title' && <HeadName className="container">{title}</HeadName>}
     </Head>
   )
 }

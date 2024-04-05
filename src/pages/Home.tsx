@@ -6,7 +6,7 @@ import HeadBanner from "../components/HeadBanner"
 const Home: React.FC = () => {
   return (
     <>
-      <HeadBanner />
+      <HeadBanner type="banner" />
       <div className="container">
         <Categories />
         <Banner />

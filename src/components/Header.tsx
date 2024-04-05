@@ -8,13 +8,10 @@ import CartModal from "./cart/CartModal"
 import Bars from "../ui/Bars"
 
 // Styles
-const HeaderBox = styled.header`
-  background: #141414;
-  position: relative;
+export const HeaderBox = styled.header`
   .container {
-    display: flex;
     align-items: center;
-    height: 97px;
+    display: flex;
     position: relative;
   }
 `
@@ -46,6 +43,7 @@ const Header: React.FC = () => {
           </HeaderCart>
         </div>
       </HeaderBox>
+
       <Modal modal={modal} close={setModal} position="top-right">
         <CartModal close={setModal} />
       </Modal>
