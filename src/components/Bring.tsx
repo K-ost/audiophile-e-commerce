@@ -5,7 +5,7 @@ import bring from "../assets/imgs/bring.jpg"
 const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-column-gap: 0;
+  grid-column-gap: 30px;
   align-items: center;
   h2 { margin: 0 0 32px; }
   margin: 0 0 200px;
