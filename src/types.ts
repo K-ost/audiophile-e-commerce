@@ -1,5 +1,5 @@
 
-export type BtnColorType = 'primary' | 'secondary' | 'link'
+export type BtnColorType = 'primary' | 'secondary' | 'black' | 'link'
 
 export type ModalPositionType = 'center' | 'top-right'
 

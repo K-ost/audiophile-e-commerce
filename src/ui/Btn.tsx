@@ -12,7 +12,7 @@ interface IBtn {
 
 // styles
 const btnStyles = css<{ $color: BtnColorType, $expand: boolean }>`
-  background: var(--color-${({ $color }) => $color === 'secondary' ? 'white' : 'primary'});
+  background: ${({ $color }) => $color === 'secondary' ? '0' : $color === 'black' ? 'var(--color-black)' : 'var(--color-primary)' };
   border: 1px solid ${props => props.$color === 'secondary' ? 'var(--color-black)' : 'transparent'};
   border-radius: 0;
   color: var(--color-${props => props.$color === 'secondary' ? 'black' : 'white'});
@@ -28,7 +28,7 @@ const btnStyles = css<{ $color: BtnColorType, $expand: boolean }>`
   transition: var(--animate);
   ${props => props.$expand && 'width: 100%;'}
   &:hover {
-    background: var(--color-${props => props.$color === 'secondary' ? 'black' : 'primary-hover'});
+    background: ${({ $color }) => $color === 'secondary' ? 'black' : $color === 'black' ? 'var(--color-black-hover)' : 'var(--color-primary-hover)' };
     color: var(--color-${props => props.$color === 'secondary' ? 'white' : 'white'});
   }
 `
