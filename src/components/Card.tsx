@@ -48,7 +48,7 @@ const Card: React.FC<ICard> = ({ el, odd }) => {
         {el.new && <ProductNew>NEW PRODUCT</ProductNew>}
         <ProductTitle>{el.name}</ProductTitle>
         <ProductText dangerouslySetInnerHTML={{ __html: el.description }}></ProductText>
-        <Btn value="See Product" />
+        <Btn value="See Product" to={`/p/${el.slug}`} />
       </div>
     </ProductBox>
   )

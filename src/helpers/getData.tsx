@@ -15,7 +15,7 @@ export const getCategory = <T, >(slug: string): IGetCat<T> => {
   useEffect(() => {
     setLoading(true)
     setTimeout(() => {
-      const cat = dataJSON.filter(el => el.category === slug)
+      const cat: any = dataJSON.filter(el => el.category === slug).reverse()
       setData(cat)
       setLoading(false)
     }, TIMEOUT)
