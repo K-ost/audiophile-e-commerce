@@ -12,7 +12,6 @@ const Cats = styled.div`
   grid-column-gap: 10px;
   grid-row-gap: 10px;
   margin: 0 0 160px;
-  padding-top: 80px;
   &:last-child {
     margin: 0;
   }

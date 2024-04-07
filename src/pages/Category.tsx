@@ -5,7 +5,7 @@ import Categories from "../components/Categories"
 import data from "../../data.json"
 import { useEffect, useState } from "react"
 import { ProductType } from "../types"
-import Product from "../components/Product"
+import Card from "../components/Card"
 
 const Category: React.FC = () => {
   const { cat } = useParams()
@@ -21,9 +21,15 @@ const Category: React.FC = () => {
   return (
     <>
       <HeadBanner type="title" title={cat} />
+      
       <div className="container">
-        {list && list.map(el => <Product key={el.id} el={el} />)}
+        {list && list.map((el, index) => {
+          const odd = index % 2 !== 0
+          return <Card key={el.id} el={el} odd={odd} />
+        })}
+
         <Categories />
+
         <Bring />
       </div>
     </>

@@ -3,9 +3,9 @@
     "id": 1,
     "slug": "yx1-earphones",
     "name": "YX1 Wireless Earphones",
-    "image": "./assets/product-yx1-earphones/desktop/image-product.jpg",
+    "image": "../assets/product-yx1-earphones/desktop/image-product.jpg",
     "category": "earphones",
-    "categoryImage": "./assets/product-yx1-earphones/desktop/image-category-page-preview.jpg",
+    "categoryImage": "../assets/product-yx1-earphones/desktop/image-category-page-preview.jpg",
     "new": true,
     "price": 599,
     "description": "Tailor your listening experience with bespoke dynamic drivers from the new YX1 Wireless Earphones. Enjoy incredible high-fidelity sound even in noisy environments with its active noise cancellation feature.",
@@ -33,25 +33,25 @@
       }
     ],
     "gallery": {
-      "first": "./assets/product-yx1-earphones/desktop/image-gallery-1.jpg",
-      "second": "./assets/product-yx1-earphones/desktop/image-gallery-2.jpg",
-      "third": "./assets/product-yx1-earphones/desktop/image-gallery-3.jpg"
+      "first": "../assets/product-yx1-earphones/desktop/image-gallery-1.jpg",
+      "second": "../assets/product-yx1-earphones/desktop/image-gallery-2.jpg",
+      "third": "../assets/product-yx1-earphones/desktop/image-gallery-3.jpg"
     },
     "others": [
       {
         "slug": "xx99-mark-one-headphones",
         "name": "XX99 Mark I",
-        "image": "./assets/shared/desktop/image-xx99-mark-one-headphones.jpg"
+        "image": "../assets/shared/desktop/image-xx99-mark-one-headphones.jpg"
       },
       {
         "slug": "xx59-headphones",
         "name": "XX59",
-        "image": "./assets/shared/desktop/image-xx59-headphones.jpg"
+        "image": "../assets/shared/desktop/image-xx59-headphones.jpg"
       },
       {
         "slug": "zx9-speaker",
         "name": "ZX9 Speaker",
-        "image": "./assets/shared/desktop/image-zx9-speaker.jpg"
+        "image": "../assets/shared/desktop/image-zx9-speaker.jpg"
       }
     ]
   },
@@ -59,9 +59,9 @@
     "id": 2,
     "slug": "xx59-headphones",
     "name": "XX59 Headphones",
-    "image": "./assets/product-xx59-headphones/desktop/image-product.jpg",
+    "image": "../assets/product-xx59-headphones/desktop/image-product.jpg",
     "category": "headphones",
-    "categoryImage": "./assets/product-xx59-headphones/desktop/image-category-page-preview.jpg",
+    "categoryImage": "../assets/product-xx59-headphones/desktop/image-category-page-preview.jpg",
     "new": false,
     "price": 899,
     "description": "Enjoy your audio almost anywhere and customize it to your specific tastes with the XX59 headphones. The stylish yet durable versatile wireless headset is a brilliant companion at home or on the move.",
@@ -85,25 +85,25 @@
       }
     ],
     "gallery": {
-      "first": "./assets/product-xx59-headphones/desktop/image-gallery-1.jpg",
-      "second": "./assets/product-xx59-headphones/desktop/image-gallery-2.jpg",
-      "third": "./assets/product-xx59-headphones/desktop/image-gallery-3.jpg"
+      "first": "../assets/product-xx59-headphones/desktop/image-gallery-1.jpg",
+      "second": "../assets/product-xx59-headphones/desktop/image-gallery-2.jpg",
+      "third": "../assets/product-xx59-headphones/desktop/image-gallery-3.jpg"
     },
     "others": [
       {
         "slug": "xx99-mark-two-headphones",
         "name": "XX99 Mark II",
-        "image": "./assets/shared/desktop/image-xx99-mark-two-headphones.jpg"
+        "image": "../assets/shared/desktop/image-xx99-mark-two-headphones.jpg"
       },
       {
         "slug": "xx99-mark-one-headphones",
         "name": "XX99 Mark I",
-        "image": "./assets/shared/desktop/image-xx99-mark-one-headphones.jpg"
+        "image": "../assets/shared/desktop/image-xx99-mark-one-headphones.jpg"
       },
       {
         "slug": "zx9-speaker",
         "name": "ZX9 Speaker",
-        "image": "./assets/shared/desktop/image-zx9-speaker.jpg"
+        "image": "../assets/shared/desktop/image-zx9-speaker.jpg"
       }
     ]
   },
@@ -111,9 +111,9 @@
     "id": 3,
     "slug": "xx99-mark-one-headphones",
     "name": "XX99 Mark I Headphones",
-    "image": "./assets/product-xx99-mark-one-headphones/desktop/image-product.jpg",
+    "image": "../assets/product-xx99-mark-one-headphones/desktop/image-product.jpg",
     "category": "headphones",
-    "categoryImage": "./assets/product-xx99-mark-one-headphones/desktop/image-category-page-preview.jpg",
+    "categoryImage": "../assets/product-xx99-mark-one-headphones/desktop/image-category-page-preview.jpg",
     "new": false,
     "price": 1750,
     "description": "As the gold standard for headphones, the classic XX99 Mark I offers detailed and accurate audio reproduction for audiophiles, mixing engineers, and music aficionados alike in studios and on the go.",
@@ -137,25 +137,25 @@
       }
     ],
     "gallery": {
-      "first": "./assets/product-xx99-mark-one-headphones/desktop/image-gallery-1.jpg",
-      "second": "./assets/product-xx99-mark-one-headphones/desktop/image-gallery-2.jpg",
-      "third": "./assets/product-xx99-mark-one-headphones/desktop/image-gallery-3.jpg"
+      "first": "../assets/product-xx99-mark-one-headphones/desktop/image-gallery-1.jpg",
+      "second": "../assets/product-xx99-mark-one-headphones/desktop/image-gallery-2.jpg",
+      "third": "../assets/product-xx99-mark-one-headphones/desktop/image-gallery-3.jpg"
     },
     "others": [
       {
         "slug": "xx99-mark-two-headphones",
         "name": "XX99 Mark II",
-        "image": "./assets/shared/desktop/image-xx99-mark-two-headphones.jpg"
+        "image": "../assets/shared/desktop/image-xx99-mark-two-headphones.jpg"
       },
       {
         "slug": "xx59-headphones",
         "name": "XX59",
-        "image": "./assets/shared/desktop/image-xx59-headphones.jpg"
+        "image": "../assets/shared/desktop/image-xx59-headphones.jpg"
       },
       {
         "slug": "zx9-speaker",
         "name": "ZX9 Speaker",
-        "image": "./assets/shared/desktop/image-zx9-speaker.jpg"
+        "image": "../assets/shared/desktop/image-zx9-speaker.jpg"
       }
     ]
   },
@@ -163,9 +163,9 @@
     "id": 4,
     "slug": "xx99-mark-two-headphones",
     "name": "XX99 Mark II Headphones",
-    "image": "./assets/product-xx99-mark-two-headphones/desktop/image-product.jpg",
+    "image": "../assets/product-xx99-mark-two-headphones/desktop/image-product.jpg",
     "category": "headphones",
-    "categoryImage": "./assets/product-xx99-mark-two-headphones/desktop/image-category-page-preview.jpg",
+    "categoryImage": "../assets/product-xx99-mark-two-headphones/desktop/image-category-page-preview.jpg",
     "new": true,
     "price": 2999,
     "description": "The new XX99 Mark II headphones is the pinnacle of pristine audio. It redefines your premium headphone experience by reproducing the balanced depth and precision of studio-quality sound.",
@@ -193,25 +193,25 @@
       }
     ],
     "gallery": {
-      "first": "./assets/product-xx99-mark-two-headphones/desktop/image-gallery-1.jpg",
-      "second": "./assets/product-xx99-mark-two-headphones/desktop/image-gallery-2.jpg",
-      "third": "./assets/product-xx99-mark-two-headphones/desktop/image-gallery-3.jpg"
+      "first": "../assets/product-xx99-mark-two-headphones/desktop/image-gallery-1.jpg",
+      "second": "../assets/product-xx99-mark-two-headphones/desktop/image-gallery-2.jpg",
+      "third": "../assets/product-xx99-mark-two-headphones/desktop/image-gallery-3.jpg"
     },
     "others": [
       {
         "slug": "xx99-mark-one-headphones",
         "name": "XX99 Mark I",
-        "image": "./assets/shared/desktop/image-xx99-mark-one-headphones.jpg"
+        "image": "../assets/shared/desktop/image-xx99-mark-one-headphones.jpg"
       },
       {
         "slug": "xx59-headphones",
         "name": "XX59",
-        "image": "./assets/shared/desktop/image-xx59-headphones.jpg"
+        "image": "../assets/shared/desktop/image-xx59-headphones.jpg"
       },
       {
         "slug": "zx9-speaker",
         "name": "ZX9 Speaker",
-        "image": "./assets/shared/desktop/image-zx9-speaker.jpg"
+        "image": "../assets/shared/desktop/image-zx9-speaker.jpg"
       }
     ]
   },
@@ -219,9 +219,9 @@
     "id": 5,
     "slug": "zx7-speaker",
     "name": "ZX7 Speaker",
-    "image": "./assets/product-zx7-speaker/desktop/image-product.jpg",
+    "image": "../assets/product-zx7-speaker/desktop/image-product.jpg",
     "category": "speakers",
-    "categoryImage": "./assets/product-zx7-speaker/desktop/image-category-page-preview.jpg",
+    "categoryImage": "../assets/product-zx7-speaker/desktop/image-category-page-preview.jpg",
     "new": false,
     "price": 3500,
     "description": "Stream high quality sound wirelessly with minimal to no loss. The ZX7 speaker uses high-end audiophile components that represents the top of the line powered speakers for home or studio use.",
@@ -249,25 +249,25 @@
       }
     ],
     "gallery": {
-      "first": "./assets/product-zx7-speaker/desktop/image-gallery-1.jpg",
-      "second": "./assets/product-zx7-speaker/desktop/image-gallery-2.jpg",
-      "third": "./assets/product-zx7-speaker/desktop/image-gallery-3.jpg"
+      "first": "../assets/product-zx7-speaker/desktop/image-gallery-1.jpg",
+      "second": "../assets/product-zx7-speaker/desktop/image-gallery-2.jpg",
+      "third": "../assets/product-zx7-speaker/desktop/image-gallery-3.jpg"
     },
     "others": [
       {
         "slug": "zx9-speaker",
         "name": "ZX9 Speaker",
-        "image": "./assets/shared/desktop/image-zx9-speaker.jpg"
+        "image": "../assets/shared/desktop/image-zx9-speaker.jpg"
       },
       {
         "slug": "xx99-mark-one-headphones",
         "name": "XX99 Mark I",
-        "image": "./assets/shared/desktop/image-xx99-mark-one-headphones.jpg"
+        "image": "../assets/shared/desktop/image-xx99-mark-one-headphones.jpg"
       },
       {
         "slug": "xx59-headphones",
         "name": "XX59",
-        "image": "./assets/shared/desktop/image-xx59-headphones.jpg"
+        "image": "../assets/shared/desktop/image-xx59-headphones.jpg"
       }
     ]
   },
@@ -275,9 +275,9 @@
     "id": 6,
     "slug": "zx9-speaker",
     "name": "ZX9 Speaker",
-    "image": "./assets/product-zx9-speaker/desktop/image-product.jpg",
+    "image": "../assets/product-zx9-speaker/desktop/image-product.jpg",
     "category": "speakers",
-    "categoryImage": "./assets/product-zx9-speaker/desktop/image-category-page-preview.jpg",
+    "categoryImage": "../assets/product-zx9-speaker/desktop/image-category-page-preview.jpg",
     "new": true,
     "price": 4500,
     "description": "Upgrade your sound system with the all new ZX9 active speaker. It’s a bookshelf speaker system that offers truly wireless connectivity -- creating new possibilities for more pleasing and practical audio setups.",
@@ -305,25 +305,25 @@
       }
     ],
     "gallery": {
-      "first": "./assets/product-zx9-speaker/desktop/image-gallery-1.jpg",
-      "second": "./assets/product-zx9-speaker/desktop/image-gallery-2.jpg",
-      "third": "./assets/product-zx9-speaker/desktop/image-gallery-3.jpg"
+      "first": "../assets/product-zx9-speaker/desktop/image-gallery-1.jpg",
+      "second": "../assets/product-zx9-speaker/desktop/image-gallery-2.jpg",
+      "third": "../assets/product-zx9-speaker/desktop/image-gallery-3.jpg"
     },
     "others": [
       {
         "slug": "zx7-speaker",
         "name": "ZX7 Speaker",
-        "image": "./assets/shared/desktop/image-zx7-speaker.jpg"
+        "image": "../assets/shared/desktop/image-zx7-speaker.jpg"
       },
       {
         "slug": "xx99-mark-one-headphones",
         "name": "XX99 Mark I",
-        "image": "./assets/shared/desktop/image-xx99-mark-one-headphones.jpg"
+        "image": "../assets/shared/desktop/image-xx99-mark-one-headphones.jpg"
       },
       {
         "slug": "xx59-headphones",
         "name": "XX59",
-        "image": "./assets/shared/desktop/image-xx59-headphones.jpg"
+        "image": "../assets/shared/desktop/image-xx59-headphones.jpg"
       }
     ]
   }
