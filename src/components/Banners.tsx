@@ -14,6 +14,12 @@ interface IBanners {
 // Styled
 const Wrap = styled.div`
   margin: 0 0 152px;
+  @media screen and (max-width: 1020px) {
+    margin: 0 0 64px;
+  }
+  @media screen and (max-width: 750px) {
+    margin: 0 0 96px;
+  }
 `
 const BoxTitle = styled.div<{ $size: SizeBannerType }>`
   color: var(--color-black);
@@ -53,10 +59,28 @@ const Box = styled.div<{ $size?: 'big' | 'small' }>`
       bottom: -72px;
     }
   }
+  @media screen and (max-width: 1020px) {
+    margin: 0 0 32px;
+    padding: 42px;
+    &.big {
+      background-position: center -300px;
+      background-size: 944px;
+      display: block;
+      padding: 52px 42px 64px;
+      text-align: center;
+      .bigImage { bottom: auto; width: 192px; margin: 0 auto 64px; }
+    }
+  }
+  @media screen and (max-width: 750px) {
+    margin: 0 0 24px;
+  }
 `
 const Details = styled.div`
   max-width: 350px;
   p { margin: 0 0 40px; }
+  @media screen and (max-width: 1020px) {
+    margin: 0 auto;
+  }
 `
 
 const Banners: React.FC<IBanners> = ({ size = 'small' }) => {
@@ -76,7 +100,7 @@ const Banners: React.FC<IBanners> = ({ size = 'small' }) => {
         <Btn value="See Product" color="secondary" />
       </Box>
 
-      <div className="grid grid-2">
+      <div className="grid grid-2 grid-mb-1">
         <Box style={{ backgroundImage: `url(${image3})` }}></Box>
         <Box style={{ backgroundColor: '#f1f1f1' }}>
           <BoxTitle $size={size}>YX1 EARPHONES</BoxTitle>
