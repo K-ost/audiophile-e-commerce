@@ -16,7 +16,6 @@ const Cats = styled.div`
     margin: 0;
   }
   @media screen and (max-width: 1020px) {
-    padding-top: 52px;
     margin: 0 0 96px;
   }
   @media screen and (max-width: 750px) {

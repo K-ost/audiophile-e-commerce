@@ -9,14 +9,29 @@ interface ICard {
 }
 
 // Styles
+const ProductBoxImg = styled.div`
+  background: var(--color-secondary);
+  img { display: block; margin: 0 auto; }
+  @media screen and (max-width: 1020px) {
+    margin: 0 0 52px;
+    img { max-height: 352px; }
+  }
+  @media screen and (max-width: 750px) {
+    margin: 0 0 32px;
+  }
+`
 const ProductBox = styled.div`
   align-items: center;
   margin: 0 0 160px;
-  img { display: block; }
   .details { padding-left: 100px; }
   &.odd {
-    img { order: 2; }
+    ${ProductBoxImg} { order: 2; }
     .details { order: 1; padding-left: 0; padding-right: 100px; }
+  }
+  @media screen and (max-width: 1020px) {
+    display: block !important;
+    margin: 0 0 120px;
+    .details { padding: 0 !important; text-align: center; }
   }
 `
 const ProductNew = styled.div`
@@ -35,15 +50,26 @@ const ProductTitle = styled.h2`
   letter-spacing: 1.43px;
   margin: 0 0 32px;
   text-transform: uppercase;
+  @media screen and (max-width: 750px) {
+    font-size: 28px;
+    line-height: 32px;
+    letter-spacing: 1px;
+    margin: 0 0 24px;
+  }
 `
 const ProductText = styled.div`
   margin: 0 0 40px;
+  @media screen and (max-width: 750px) {
+    margin: 0 0 24px;
+  }
 `
 
 const Card: React.FC<ICard> = ({ el, odd }) => {
   return (
     <ProductBox className={`grid grid-2 ${odd ? 'odd' : ''}`}>
-      <img src={getImageLink(el.image)} alt="" />
+      <ProductBoxImg>
+        <img src={getImageLink(el.image)} alt="" />
+      </ProductBoxImg>
       <div className="details">
         {el.new && <ProductNew>NEW PRODUCT</ProductNew>}
         <ProductTitle>{el.name}</ProductTitle>

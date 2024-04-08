@@ -5,6 +5,18 @@ import Categories from "../components/Categories"
 import { getCategory } from "../helpers/getData"
 import Card from "../components/Card"
 import { ProductType } from "../types"
+import styled from "styled-components"
+
+// Styles
+const Cats = styled.div`
+  padding-top: 127px;
+  @media screen and (max-width: 1020px) {
+    padding-top: 95px;
+  }
+  @media screen and (max-width: 750px) {
+    padding-top: 48px;
+  }
+`
 
 const Category: React.FC = () => {
   const { cat } = useParams()
@@ -17,10 +29,12 @@ const Category: React.FC = () => {
       <div className="container">
         {loading && 'loading...'}
 
-        {data.map((el, index) => {
-          const odd = index % 2 !== 0
-          return <Card key={el.id} el={el} odd={odd} />
-        })}
+        <Cats>
+          {data.map((el, index) => {
+            const odd = index % 2 !== 0
+            return <Card key={el.id} el={el} odd={odd} />
+          })}
+        </Cats>
 
         <Categories />
 
