@@ -6,6 +6,7 @@ import { getCategory } from "../helpers/getData"
 import Card from "../components/Card"
 import { ProductType } from "../types"
 import styled from "styled-components"
+import Skelet from "../components/Skelet"
 
 // Styles
 const Cats = styled.div`
@@ -27,7 +28,7 @@ const Category: React.FC = () => {
       <HeadBanner type="title" title={cat} />
 
       <div className="container">
-        {loading && 'loading...'}
+        {loading && <Skelet />}
 
         <Cats>
           {data.map((el, index) => {

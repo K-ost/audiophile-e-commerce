@@ -58,6 +58,13 @@ const Box = styled.div<{ $size?: 'big' | 'small' }>`
       position: relative;
       bottom: -72px;
     }
+    @media screen and (max-width: 750px) {
+      ${BoxTitle} {
+        font-size: 36px;
+        letter-spacing: 1.29px;
+        line-height: 40px;
+      }
+    }
   }
   @media screen and (max-width: 1020px) {
     margin: 0 0 32px;
@@ -72,6 +79,12 @@ const Box = styled.div<{ $size?: 'big' | 'small' }>`
     }
   }
   @media screen and (max-width: 750px) {
+    &.big {
+      background-position: center -140px;
+      background-size: 610px;
+    }
+    &.small { min-height: 200px; }
+    padding: 24px;
     margin: 0 0 24px;
   }
 `
@@ -101,8 +114,8 @@ const Banners: React.FC<IBanners> = ({ size = 'small' }) => {
       </Box>
 
       <div className="grid grid-2 grid-mb-1">
-        <Box style={{ backgroundImage: `url(${image3})` }}></Box>
-        <Box style={{ backgroundColor: '#f1f1f1' }}>
+        <Box style={{ backgroundImage: `url(${image3})` }} className="small"></Box>
+        <Box style={{ backgroundColor: '#f1f1f1' }} className="small">
           <BoxTitle $size={size}>YX1 EARPHONES</BoxTitle>
           <Btn value="See Product" color="secondary" />
         </Box>
