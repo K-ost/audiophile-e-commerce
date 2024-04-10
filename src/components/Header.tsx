@@ -1,9 +1,9 @@
+import { useState } from "react"
 import styled from "styled-components"
 import Nav from "./Nav"
 import Logo from "./Logo"
 import Cart from "./cart/Cart"
 import Modal from "../ui/Modal"
-import { useState } from "react"
 import CartModal from "./cart/CartModal"
 import Bars from "../ui/Bars"
 

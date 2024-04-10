@@ -12,10 +12,14 @@ interface IHeadBanner {
 
 // Styles
 const Head = styled.div<{ $type: HeadType }>`
-  background: #141414;
+  background-color: #141414;
+  ${props => props.$type === 'banner' && `
+    background-image: url(${img});
+    background-position: calc(50% + calc(var(--container) / 4)) 0;
+    background-repeat: no-repeat;
+  `}
   margin: 0 0 ${props => props.$type === 'banner' ? '120px' : '79px'};
   position: relative;
-  overflow: hidden;
   .container {
     align-items: center;
     display: flex;
@@ -34,18 +38,19 @@ const Head = styled.div<{ $type: HeadType }>`
       height: 97px;
     }
   }
+  .container-banner { padding: 120px 0 158px; }
   @media screen and (max-width: 1020px) {
+    ${props => props.$type === 'banner' && `
+      background-position: center 0;
+    `}
     margin: 0 0 ${props => props.$type === 'banner' ? '96px' : '33px'};
-    .container-banner {
-      display: block;
-      img { position: absolute; top: 0; }
-    }
   }
   @media screen and (max-width: 750px) {
+    ${props => props.$type === 'banner' && `
+      background-size: 590px;
+    `}
     margin: 0 0 ${props => props.$type === 'banner' ? '40px' : '16px'};
-    .container-banner {
-      img { width: 600px; max-width: none; left: 50%; transform: translateX(-50%); }
-    }
+    .container-banner { padding: 108px 0 112px; }
   }
 `
 const HeadName = styled.div`
@@ -69,14 +74,12 @@ const Detail = styled.div`
   width: 400px;
   padding-top: 97px;
   @media screen and (max-width: 1020px) {
-    padding: 200px 0 160px;
     margin: 0 auto;
     text-align: center;
     position: relative;
     z-index: 1000;
   }
   @media screen and (max-width: 750px) {
-    padding-bottom: 110px;
     width: auto;
   }
 `
@@ -125,7 +128,6 @@ const HeadBanner: React.FC<IHeadBanner> = ({ title, type = 'simple' }) => {
           <HeadText>Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.</HeadText>
           <Btn value="See Product" to="/p/xx99-mark-two-headphones" />
         </Detail>
-        <img src={img} alt="" />
       </div>}
       {type === 'title' && <HeadName className="container">{title}</HeadName>}
     </Head>

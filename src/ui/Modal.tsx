@@ -30,7 +30,7 @@ const Popup = styled.div<{ $open: boolean, $position: ModalPositionType }>`
   opacity: ${props => props.$open ? 1 : 0};
   visibility: ${props => props.$open ? 'visible' : 'hidden'};
   transition: var(--animate);
-  z-index: 1000;
+  z-index: 1500;
   @media screen and (max-width: 750px) {
     ${props => props.$position === 'top-right' && `
       top: 114px;
