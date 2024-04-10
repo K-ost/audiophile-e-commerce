@@ -4,10 +4,12 @@ import Category from './pages/Category'
 import Product from './pages/Product'
 import Checkout from './pages/Checkout'
 import Footer from './components/Footer'
+import ScrollToTop from './helpers/ScrollToTop'
 
 function App() {
   return (
     <div className="app">
+      <ScrollToTop />
       <Routes>
         <Route index path="/" element={<Home />} />
         <Route path="/:cat" element={<Category />} />

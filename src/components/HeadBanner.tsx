@@ -123,7 +123,7 @@ const HeadBanner: React.FC<IHeadBanner> = ({ title, type = 'simple' }) => {
           <HeadNew>NEW PRODUCT</HeadNew>
           <HeadTitle>XX99 Mark II Headphones</HeadTitle>
           <HeadText>Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.</HeadText>
-          <Btn value="See Product" />
+          <Btn value="See Product" to="/p/xx99-mark-two-headphones" />
         </Detail>
         <img src={img} alt="" />
       </div>}

@@ -104,20 +104,20 @@ const Banners: React.FC<IBanners> = ({ size = 'small' }) => {
         <Details>
           <BoxTitle $size={size}>ZX9 SPEAKER</BoxTitle>
           <p>Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.</p>
-          <Btn value="See Product" color="black" />
+          <Btn value="See Product" color="black" to="/p/zx9-speaker" />
         </Details>
       </Box>
 
       <Box style={{ backgroundImage: `url(${image2})` }}>
         <BoxTitle $size={size}>ZX7 SPEAKER</BoxTitle>
-        <Btn value="See Product" color="secondary" />
+        <Btn value="See Product" color="secondary" to="/p/zx7-speaker" />
       </Box>
 
       <div className="grid grid-2 grid-mb-1">
         <Box style={{ backgroundImage: `url(${image3})` }} className="small"></Box>
         <Box style={{ backgroundColor: '#f1f1f1' }} className="small">
           <BoxTitle $size={size}>YX1 EARPHONES</BoxTitle>
-          <Btn value="See Product" color="secondary" />
+          <Btn value="See Product" color="secondary" to="/p/yx1-earphones" />
         </Box>
       </div>
     </Wrap>

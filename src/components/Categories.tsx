@@ -7,21 +7,13 @@ import MoreBtn from "../ui/MoreBtn"
 
 // Styles
 const Cats = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-column-gap: var(--gap);
-  grid-row-gap: var(--gap);
-  margin: 0 0 160px;
-  &:last-child {
-    margin: 0;
-  }
+  margin: 0 0 var(--margin);
+  &:last-child { margin: 0; }
   @media screen and (max-width: 1020px) {
     margin: 0 0 96px;
   }
   @media screen and (max-width: 750px) {
-    display: block;
-    padding-top: 0;
-    margin: 0 0 120px;
+    margin: 0 0 var(--margin);
   }
 `
 const CatItem = styled.div`
@@ -57,7 +49,7 @@ const CatItemImg = styled.div`
 
 const Categories: React.FC = () => {
   return (
-    <Cats>
+    <Cats className="grid grid-3 grid-mb-1">
       <CatItem>
         <CatItemImg>
           <img src={cat1} alt="" />

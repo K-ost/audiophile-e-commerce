@@ -9,6 +9,7 @@ import Gallery from "../components/Gallery"
 import Description from "../components/Description"
 import Categories from "../components/Categories"
 import Bring from "../components/Bring"
+import Others from "../components/Others"
 
 const Product: React.FC = () => {
   const { product } = useParams()
@@ -28,7 +29,7 @@ const Product: React.FC = () => {
 
           <Gallery gallery={el.gallery} />
 
-          
+          <Others others={el.others} />
         </>}
 
         <Categories />
