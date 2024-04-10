@@ -14,6 +14,7 @@
   --color-line: #CFCFCF;
   --color-danger: #CD2C2C;
   --container: 1110px;
+  --cat-top: 81px;
   --ff: "Manrope", sans-serif;
   --gap: 30px;
 }
@@ -110,6 +111,7 @@ h6 {
 .container {
   margin: 0 auto;
   width: var(--container);
+  &-cat { padding-top: var(--cat-top); }
 }
 .grid {
   display: grid;
@@ -124,13 +126,14 @@ h6 {
 /* Responsive */
 @media screen and (max-width: 1160px) {
   :root {
-    --container: 1020px;
+    --container: 992px;
   }
 }
 
 @media screen and (max-width: 1020px) {
   :root {
     --container: 690px;
+    --cat-top: 60px;
     --gap: 12px;
   }
 }
@@ -138,8 +141,9 @@ h6 {
 @media screen and (max-width: 750px) {
   :root {
     --container: auto;
+    --cat-top: 48px;
   }
-  .container { padding: 0 24px; }
+  .container { padding-left: 24px; padding-right: 24px; }
   .grid-mb-1 { grid-template-columns: repeat(1, 1fr); }
 }
 

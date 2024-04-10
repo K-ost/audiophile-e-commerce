@@ -5,7 +5,7 @@ import { getImageLink } from "../helpers/image"
 
 interface ICard {
   el: ProductType
-  odd: boolean
+  odd?: boolean
 }
 
 // Styles

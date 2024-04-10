@@ -3,19 +3,22 @@ import dataJSON from "../../data.json"
 
 const TIMEOUT = 500
 
-interface IGetCat<T> {
+type DataType = 'cat' | 'product'
+
+interface IGetData<T> {
   data: T[],
   loading: boolean
 }
 
-export const getCategory = <T, >(slug: string): IGetCat<T> => {
+// getCategory
+const getData = <T, >(slug: string, type: DataType): IGetData<T> => {
   const [data, setData] = useState<T[]>([])
   const [loading, setLoading] = useState<boolean>(true)
 
   useEffect(() => {
     setLoading(true)
     setTimeout(() => {
-      const cat: any = dataJSON.filter(el => el.category === slug).reverse()
+      const cat: any = type === 'cat' ? dataJSON.filter(el => el.category === slug).reverse() : dataJSON.filter(el => el.slug === slug)
       setData(cat)
       setLoading(false)
     }, TIMEOUT)
@@ -23,3 +26,5 @@ export const getCategory = <T, >(slug: string): IGetCat<T> => {
   
   return { data, loading }
 }
+
+export default getData

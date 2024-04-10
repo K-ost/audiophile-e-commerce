@@ -13,7 +13,7 @@ interface IHeadBanner {
 // Styles
 const Head = styled.div<{ $type: HeadType }>`
   background: #141414;
-  margin: 0 0 ${props => props.$type === 'banner' ? '120px' : '33px'};
+  margin: 0 0 ${props => props.$type === 'banner' ? '120px' : '79px'};
   position: relative;
   overflow: hidden;
   .container {
