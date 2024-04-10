@@ -5,10 +5,15 @@ import getData from "../helpers/getData"
 import { ProductType } from "../types"
 import Skelet from "../components/Skelet"
 import Card from "../components/Card"
+import Gallery from "../components/Gallery"
+import Description from "../components/Description"
+import Categories from "../components/Categories"
+import Bring from "../components/Bring"
 
 const Product: React.FC = () => {
   const { product } = useParams()
   const { data, loading } = getData<ProductType>(product!, 'product')
+  const el: ProductType = data[0]
 
   return (
     <>
@@ -17,14 +22,18 @@ const Product: React.FC = () => {
         <Backlink />
 
         {loading ? <Skelet /> : <>
-          <Card el={data[0]} store />
+          <Card el={el} store />
 
-          <h2>Features</h2>
-          {data[0].features}
+          <Description features={el.features} includes={el.includes} />
 
-          <h2>in the box</h2>
-          {data[0].includes.map((el: ) => <li key={el.}></li>)}
+          <Gallery gallery={el.gallery} />
+
+          
         </>}
+
+        <Categories />
+
+        <Bring />
 
       </div>
     </>

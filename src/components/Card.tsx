@@ -24,7 +24,7 @@ const ProductBoxImg = styled.div`
 `
 const ProductBox = styled.div`
   align-items: center;
-  margin: 0 0 160px;
+  margin: 0 0 var(--margin);
   .details { padding-left: 100px; }
   &.odd {
     ${ProductBoxImg} { order: 2; }
@@ -32,7 +32,6 @@ const ProductBox = styled.div`
   }
   @media screen and (max-width: 1020px) {
     display: block !important;
-    margin: 0 0 120px;
     .details { padding: 0 !important; text-align: center; }
   }
 `

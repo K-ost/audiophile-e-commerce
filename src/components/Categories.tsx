@@ -9,8 +9,8 @@ import MoreBtn from "../ui/MoreBtn"
 const Cats = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-column-gap: 10px;
-  grid-row-gap: 10px;
+  grid-column-gap: var(--gap);
+  grid-row-gap: var(--gap);
   margin: 0 0 160px;
   &:last-child {
     margin: 0;

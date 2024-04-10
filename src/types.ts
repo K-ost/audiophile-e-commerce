@@ -33,7 +33,7 @@ export type ProductType = {
   price: number
   description: string
   features: string
-  includes: IncludesType
+  includes: IncludesType[]
   gallery: GalleryType
   others: OthersType[]
 }
