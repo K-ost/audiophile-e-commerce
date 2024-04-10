@@ -2,10 +2,12 @@ import styled from "styled-components"
 import { ProductType } from "../types"
 import Btn from "../ui/Btn"
 import { getImageLink } from "../helpers/image"
+import Increment from "../ui/Increment"
 
 interface ICard {
   el: ProductType
   odd?: boolean
+  store?: boolean
 }
 
 // Styles
@@ -63,8 +65,22 @@ const ProductText = styled.div`
     margin: 0 0 24px;
   }
 `
+const ProductPrice = styled.div`
+  color: var(--color-black);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 1.29px;
+  margin: 0 0 47px;
+  @media screen and (max-width: 1020px) {
+    margin: 0 0 31px;
+  }
+`
+const ProductMeta = styled.div`
+  display: flex;
+  &>* { margin: 0 16px 0 0; &:last-child { margin: 0; } }
+`
 
-const Card: React.FC<ICard> = ({ el, odd }) => {
+const Card: React.FC<ICard> = ({ el, odd, store }) => {
   return (
     <ProductBox className={`grid grid-2 ${odd ? 'odd' : ''}`}>
       <ProductBoxImg>
@@ -74,7 +90,16 @@ const Card: React.FC<ICard> = ({ el, odd }) => {
         {el.new && <ProductNew>NEW PRODUCT</ProductNew>}
         <ProductTitle>{el.name}</ProductTitle>
         <ProductText dangerouslySetInnerHTML={{ __html: el.description }}></ProductText>
-        <Btn value="See Product" to={`/p/${el.slug}`} />
+        
+        {!store && <Btn value="See Product" to={`/p/${el.slug}`} />}
+
+        {store && <>
+          <ProductPrice>$ {el.price.toLocaleString('en-US')}</ProductPrice>
+          <ProductMeta>
+            <Increment handler={() => {}} />
+            <Btn value="ADD TO CART" />
+          </ProductMeta>
+        </>}
       </div>
     </ProductBox>
   )
