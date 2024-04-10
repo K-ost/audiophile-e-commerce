@@ -2,6 +2,7 @@ import styled from "styled-components"
 import Btn from "../../ui/Btn"
 import { useNavigate } from "react-router-dom"
 import Increment from "../../ui/Increment"
+import CartItem from "./CartItem"
 
 interface ICartModal {
   close: React.Dispatch<React.SetStateAction<boolean>>
@@ -14,6 +15,7 @@ const Head = styled.div`
   justify-content: space-between;
   margin: 0 0 32px;
   a { color: var(--color-text); }
+  a:hover { color: var(--color-primary); text-decoration: underline; }
 `
 const Title = styled.div`
   color: var(--color-black);
@@ -48,6 +50,10 @@ const CartModal: React.FC<ICartModal> = ({ close }) => {
         <Title>cart (3)</Title>
         <a href="/">Remove all</a>
       </Head>
+
+      <CartItem />
+      <CartItem />
+      <CartItem />
 
       <Total>
         <div>TOTAL</div>
