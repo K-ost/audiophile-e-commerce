@@ -5,6 +5,7 @@ import { IncrementSizeType } from "../types"
 interface IIncrement {
   handler: (num: number) => void
   size?: IncrementSizeType
+  value?: number
 }
 
 // Styles
@@ -50,12 +51,12 @@ const Field = styled.input.attrs({ type: "number" })<{ $size: IncrementSizeType 
   }
 `
 
-const Increment: React.FC<IIncrement> = ({ handler, size = 'large' }) => {
-  const [counter, setCounter] = useState<number>(1)
+const Increment: React.FC<IIncrement> = ({ handler, size = 'large', value = 1 }) => {
+  const [counter, setCounter] = useState<number>(value)
 
   useEffect(() => {
     handler(counter)
-  }, [counter])
+  }, [counter, value])
 
   // subtraction
   const subtraction = () => {

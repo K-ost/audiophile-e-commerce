@@ -52,7 +52,7 @@ const CartItem: React.FC<ICartItem> = ({ el }) => {
         </ItemTitle>
         <ItemPrice>$ {el.price.toLocaleString('en-US')}</ItemPrice>
       </ItemDetails>
-      <Increment handler={() => {}} size="small" />
+      <Increment handler={() => {}} size="small" value={el.count} />
     </Item>
   )
 }
