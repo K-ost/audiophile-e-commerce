@@ -1,8 +1,15 @@
+import Backlink from "../components/Backlink"
+import HeadBanner from "../components/HeadBanner"
+
 const Checkout: React.FC = () => {
   return (
-    <div className="container">
-      <h1>Checkout</h1>
-    </div>
+    <>
+      <HeadBanner type="simple" />
+      <div className="container">
+        <Backlink />
+        
+      </div>
+    </>
   )
 }
 

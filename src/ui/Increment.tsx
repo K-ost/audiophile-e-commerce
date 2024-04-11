@@ -56,7 +56,11 @@ const Increment: React.FC<IIncrement> = ({ handler, size = 'large', value = 1 })
 
   useEffect(() => {
     handler(counter)
-  }, [counter, value])
+  }, [counter])
+
+  useEffect(() => {
+    setCounter(value)
+  }, [value])
 
   // subtraction
   const subtraction = () => {
