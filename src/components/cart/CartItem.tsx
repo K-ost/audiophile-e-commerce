@@ -1,9 +1,11 @@
 import styled from "styled-components"
 import Increment from "../../ui/Increment"
 import { Link } from "react-router-dom"
+import { OrderType } from "../../types"
+import { getImageLink } from "../../helpers/utils"
 
 interface ICartItem {
-
+  el: OrderType
 }
 
 // Styles
@@ -28,7 +30,8 @@ const ItemDetails = styled.div`
 const ItemTitle = styled.div`
   color: var(--color-black);
   font-weight: 700;
-  a { color: inherit; text-decoration: none; }
+  line-height: 20px;
+  a { color: inherit; display: block; text-decoration: none; }
   a:hover { color: var(--color-primary); }
 `
 const ItemPrice = styled.div`
@@ -37,17 +40,17 @@ const ItemPrice = styled.div`
   font-weight: 700;
 `
 
-const CartItem: React.FC<ICartItem> = () => {
+const CartItem: React.FC<ICartItem> = ({ el }) => {
   return (
     <Item>
-      <Link to="/">
-        <img src="" alt="" />
+      <Link to={el.slug}>
+        <img src={getImageLink(el.image)} alt="" />
       </Link>
       <ItemDetails>
         <ItemTitle>
-          <Link to="/">XX99 MK II</Link>
+          <Link to={el.slug}>{el.name}</Link>
         </ItemTitle>
-        <ItemPrice>$ 2,999</ItemPrice>
+        <ItemPrice>$ {el.price.toLocaleString('en-US')}</ItemPrice>
       </ItemDetails>
       <Increment handler={() => {}} size="small" />
     </Item>

@@ -1,8 +1,9 @@
 import styled from "styled-components"
 import Btn from "../../ui/Btn"
 import { useNavigate } from "react-router-dom"
-import Increment from "../../ui/Increment"
 import CartItem from "./CartItem"
+import { useAppStore } from "../../store/store"
+import { getOrderTotal, getOrdersCount } from "../../helpers/utils"
 
 interface ICartModal {
   close: React.Dispatch<React.SetStateAction<boolean>>
@@ -37,6 +38,9 @@ const Total = styled.div`
 
 const CartModal: React.FC<ICartModal> = ({ close }) => {
   const nav = useNavigate()
+  const { orders, removeAllOrders } = useAppStore()
+  const count = getOrdersCount(orders)
+  const total = getOrderTotal(orders)
 
   // toCheckout
   const toCheckout = () => {
@@ -44,20 +48,24 @@ const CartModal: React.FC<ICartModal> = ({ close }) => {
     nav('/checkout')
   }
 
+  // removeCart
+  const removeCart = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault()
+    removeAllOrders()
+  }
+
   return (
     <div>
       <Head>
-        <Title>cart (3)</Title>
-        <a href="/">Remove all</a>
+        <Title>cart ({count})</Title>
+        <a href="/" onClick={removeCart}>Remove all</a>
       </Head>
 
-      <CartItem />
-      <CartItem />
-      <CartItem />
+      {orders.map(order => <CartItem key={order.id} el={order} />)}
 
       <Total>
         <div>TOTAL</div>
-        <b>$ 5,396</b>
+        <b>$ {total}</b>
       </Total>
 
       <Btn value="Checkout" handler={toCheckout} expand />

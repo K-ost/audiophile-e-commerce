@@ -1,13 +1,15 @@
 import { create } from 'zustand'
 import { devtools, persist } from 'zustand/middleware'
-import { ProductType } from '../types'
+import { nanoid } from 'nanoid'
+import { OrderType, ProductType } from '../types'
 
 interface AppState {
-  orders: any,
+  orders: OrderType[]
   addOrder: (count: number, order: ProductType) => void
+  removeAllOrders: () => void
 }
 
-export const useStore = create<AppState>()(
+export const useAppStore = create<AppState>()(
   devtools(
     persist(
       (set) => ({
@@ -15,13 +17,37 @@ export const useStore = create<AppState>()(
         
         // addOrder
         addOrder: (count, order) => set((state) => {
-          return state.orders = [ 1, ...state.orders ]
-        })
+
+          // newOrder
+          const newOrder: OrderType = {
+            id: nanoid(),
+            count,
+            image: order.image,
+            name: order.name,
+            price: order.price,
+            slug: order.slug
+          }
+          
+          // if order exists
+          const existed = state.orders.some(el => el.slug === order.slug)
+          const found = state.orders.find(el => el.slug === order.slug)
+          
+          if (existed) {
+            found!.count += count
+            return { orders: state.orders }
+          }
+          
+          return { orders: [ ...state.orders, newOrder ] }
+        }),
+
+        // removeAllOrders
+        removeAllOrders: () => set(() => ({ orders: [] })),
+
       }),
       {
         name: 'orders',
         partialize: (state) => ({
-          theme: state.orders
+          orders: state.orders
         })
       }
     )

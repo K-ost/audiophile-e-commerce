@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import { OthersType } from "../types"
 import Btn from "../ui/Btn"
-import { getImageLink } from "../helpers/image"
+import { getImageLink } from "../helpers/utils"
 import { Link } from "react-router-dom"
 
 interface IOthers {

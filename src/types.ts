@@ -37,3 +37,12 @@ export type ProductType = {
   gallery: GalleryType
   others: OthersType[]
 }
+
+export type OrderType = {
+  id: string
+  slug: string
+  name: string
+  image: string
+  price: number
+  count: number
+}

@@ -1,9 +1,10 @@
 import styled from "styled-components"
 import { ProductType } from "../types"
 import Btn from "../ui/Btn"
-import { getImageLink } from "../helpers/image"
+import { getImageLink } from "../helpers/utils"
 import Increment from "../ui/Increment"
 import { useState } from "react"
+import { useAppStore } from "../store/store"
 
 interface ICard {
   el: ProductType
@@ -82,6 +83,7 @@ const ProductMeta = styled.div`
 
 const Card: React.FC<ICard> = ({ el, odd, store }) => {
   const [count, setCount] = useState<number>(1)
+  const { addOrder } = useAppStore()
 
   return (
     <ProductBox className={`grid grid-2 ${odd ? 'odd' : ''}`}>
@@ -99,7 +101,7 @@ const Card: React.FC<ICard> = ({ el, odd, store }) => {
           <ProductPrice>$ {el.price.toLocaleString('en-US')}</ProductPrice>
           <ProductMeta>
             <Increment handler={setCount} />
-            <Btn value="ADD TO CART" handler={() => {}} />
+            <Btn value="ADD TO CART" handler={() => addOrder(count, el)} />
           </ProductMeta>
         </>}
       </div>

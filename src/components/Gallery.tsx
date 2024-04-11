@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import { GalleryType } from "../types"
-import { getImageLink } from "../helpers/image"
+import { getImageLink } from "../helpers/utils"
 
 interface IGallery {
   gallery: GalleryType
