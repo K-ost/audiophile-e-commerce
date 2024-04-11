@@ -3,6 +3,7 @@ import { ProductType } from "../types"
 import Btn from "../ui/Btn"
 import { getImageLink } from "../helpers/image"
 import Increment from "../ui/Increment"
+import { useState } from "react"
 
 interface ICard {
   el: ProductType
@@ -80,13 +81,15 @@ const ProductMeta = styled.div`
 `
 
 const Card: React.FC<ICard> = ({ el, odd, store }) => {
+  const [count, setCount] = useState<number>(1)
+
   return (
     <ProductBox className={`grid grid-2 ${odd ? 'odd' : ''}`}>
       <ProductBoxImg>
         <img src={getImageLink(el.image)} alt="" />
       </ProductBoxImg>
       <div className="details">
-        {el.new && <ProductNew>NEW PRODUCT</ProductNew>}
+        {el.new && <ProductNew>NEW PRODUCT {count}</ProductNew>}
         <ProductTitle>{el.name}</ProductTitle>
         <ProductText dangerouslySetInnerHTML={{ __html: el.description }}></ProductText>
         
@@ -95,8 +98,8 @@ const Card: React.FC<ICard> = ({ el, odd, store }) => {
         {store && <>
           <ProductPrice>$ {el.price.toLocaleString('en-US')}</ProductPrice>
           <ProductMeta>
-            <Increment handler={() => {}} />
-            <Btn value="ADD TO CART" />
+            <Increment handler={setCount} />
+            <Btn value="ADD TO CART" handler={() => {}} />
           </ProductMeta>
         </>}
       </div>
