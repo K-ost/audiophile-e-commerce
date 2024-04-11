@@ -43,12 +43,12 @@ const ItemPrice = styled.div`
 const CartItem: React.FC<ICartItem> = ({ el }) => {
   return (
     <Item>
-      <Link to={el.slug}>
+      <Link to={`/p/${el.slug}`}>
         <img src={getImageLink(el.image)} alt="" />
       </Link>
       <ItemDetails>
         <ItemTitle>
-          <Link to={el.slug}>{el.name}</Link>
+          <Link to={`/p/${el.slug}`}>{el.name}</Link>
         </ItemTitle>
         <ItemPrice>$ {el.price.toLocaleString('en-US')}</ItemPrice>
       </ItemDetails>
