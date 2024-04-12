@@ -1,6 +1,7 @@
 import styled from "styled-components"
 
 interface IRadio {
+  expand?: boolean
   handler: any
   label: string
   name: string
@@ -8,7 +9,7 @@ interface IRadio {
 }
 
 // Styles
-const RadioBox = styled.label`
+const RadioBox = styled.label<{ $expand: boolean }>`
   align-items: center;
   background: 0;
   border: 1px solid var(--color-line);
@@ -23,6 +24,7 @@ const RadioBox = styled.label`
   margin: 0;
   padding: 4px 16px;
   vertical-align: middle;
+  width: ${props => props.$expand ? '100%' : 'auto'};
   &:hover, &:focus-within {
     border-color: var(--color-primary);
   }
@@ -41,9 +43,9 @@ const RadioBtn = styled.input.attrs({ type: 'radio' })`
   -webkit-appearance: none;
 `
 
-const Radio: React.FC<IRadio> = ({ handler, label, name, value }) => {
+const Radio: React.FC<IRadio> = ({ expand = false, handler, label, name, value }) => {
   return (
-    <RadioBox>
+    <RadioBox $expand={expand}>
       <RadioBtn
         name={name}
         className="radioBtn"
