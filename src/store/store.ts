@@ -6,6 +6,7 @@ import { OrderType, ProductType } from '../types'
 interface AppState {
   orders: OrderType[]
   addOrder: (count: number, order: ProductType) => void
+  changeQuantityOrder: (count: number, orderId: string) => void
   removeAllOrders: () => void
 }
 
@@ -38,6 +39,16 @@ export const useAppStore = create<AppState>()(
           }
           
           return { orders: [ ...state.orders, newOrder ] }
+        }),
+
+        // changeQuantityOrder
+        changeQuantityOrder: (count, orderId) => set((state) => {
+          const found = state.orders.find(el => el.id === orderId)
+          found!.count = count
+          if (count === 0) {
+            return { orders: state.orders.filter(el => el.id !== orderId) }
+          }
+          return { orders: state.orders }
         }),
 
         // removeAllOrders

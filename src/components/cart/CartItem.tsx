@@ -3,6 +3,8 @@ import Increment from "../../ui/Increment"
 import { Link } from "react-router-dom"
 import { OrderType } from "../../types"
 import { getImageLink } from "../../helpers/utils"
+import { useAppStore } from "../../store/store"
+import { useCallback } from "react"
 
 interface ICartItem {
   el: OrderType
@@ -41,6 +43,13 @@ const ItemPrice = styled.div`
 `
 
 const CartItem: React.FC<ICartItem> = ({ el }) => {
+  const { changeQuantityOrder } = useAppStore()
+
+  // changeQuantityFunc
+  const changeQuantityFunc = useCallback((val: number) => {
+    changeQuantityOrder(val, el.id)
+  }, [el.count])
+
   return (
     <Item>
       <Link to={`/p/${el.slug}`}>
@@ -52,7 +61,7 @@ const CartItem: React.FC<ICartItem> = ({ el }) => {
         </ItemTitle>
         <ItemPrice>$ {el.price.toLocaleString('en-US')}</ItemPrice>
       </ItemDetails>
-      <Increment handler={() => {}} size="small" value={el.count} />
+      <Increment handler={(val) => changeQuantityFunc(val)} size="small" value={el.count} min={0} />
     </Item>
   )
 }
