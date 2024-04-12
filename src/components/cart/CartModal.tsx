@@ -57,18 +57,20 @@ const CartModal: React.FC<ICartModal> = ({ close }) => {
   return (
     <div>
       <Head>
-        <Title>cart ({count})</Title>
-        <a href="/" onClick={removeCart}>Remove all</a>
+        <Title>Cart {count > 0 && `(${count})`}</Title>
+        {count > 0 && <a href="/" onClick={removeCart}>Remove all</a>}
       </Head>
 
-      {orders.map(order => <CartItem key={order.id} el={order} />)}
+      {count > 0 ? <>
+        {orders.map(order => <CartItem key={order.id} el={order} />)}
 
-      <Total>
-        <div>TOTAL</div>
-        <b>$ {total}</b>
-      </Total>
+        <Total>
+          <div>TOTAL</div>
+          <b>$ {total}</b>
+        </Total>
 
-      <Btn value="Checkout" handler={toCheckout} expand />
+        <Btn value="Checkout" handler={toCheckout} expand />
+      </> : <div>Your cart is empty</div>}
     </div>
   )
 }

@@ -3,6 +3,7 @@ import { BtnColorType } from "../types"
 import { Link } from "react-router-dom"
 
 interface IBtn {
+  disabled?: boolean
   handler?: () => void
   value: string
   color?: BtnColorType
@@ -31,6 +32,14 @@ const btnStyles = css<{ $color: BtnColorType, $expand: boolean }>`
     background: ${({ $color }) => $color === 'secondary' ? 'black' : $color === 'black' ? 'var(--color-black-hover)' : 'var(--color-primary-hover)' };
     color: var(--color-${props => props.$color === 'secondary' ? 'white' : 'white'});
   }
+  &:disabled {
+    cursor: default;
+    opacity: 0.5;
+    &:hover {
+      background: ${({ $color }) => $color === 'secondary' ? '0' : $color === 'black' ? 'var(--color-black)' : 'var(--color-primary)' };
+      color: var(--color-${props => props.$color === 'secondary' ? 'black' : 'white'});
+    }
+  }
 `
 const BtnBox = styled.button<{ $color: BtnColorType, $expand: boolean }>`
   cursor: pointer;
@@ -41,12 +50,12 @@ const BtnLink = styled(Link)<{ $color: BtnColorType, $expand: boolean }>`
   ${btnStyles}
 `
 
-const Btn: React.FC<IBtn> = ({ color = 'primary', expand = false, handler, to, value }) => {
+const Btn: React.FC<IBtn> = ({ color = 'primary', disabled = false, expand = false, handler, to, value }) => {
   return (
     <>
       {!!to
         ? <BtnLink to={to} $color={color} $expand={expand}>{value}</BtnLink>
-        : <BtnBox onClick={handler} $color={color} $expand={expand}>{value}</BtnBox>
+        : <BtnBox onClick={handler} $color={color} $expand={expand} disabled={disabled}>{value}</BtnBox>
       }
     </>
   )
