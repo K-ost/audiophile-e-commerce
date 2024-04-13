@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import { ProductType } from "../types"
 import Btn from "../ui/Btn"
-import { getImageLink } from "../helpers/utils"
+import { convertPrice, getImageLink } from "../helpers/utils"
 import Increment from "../ui/Increment"
 import { useState } from "react"
 import { useAppStore } from "../store/store"
@@ -98,7 +98,7 @@ const Card: React.FC<ICard> = ({ el, odd, store }) => {
         {!store && <Btn value="See Product" to={`/p/${el.slug}`} />}
 
         {store && <>
-          <ProductPrice>$ {el.price.toLocaleString('en-US')}</ProductPrice>
+          <ProductPrice>$ {convertPrice(el.price)}</ProductPrice>
           <ProductMeta>
             <Increment handler={setCount} />
             <Btn value="ADD TO CART" handler={() => addOrder(count, el)} />

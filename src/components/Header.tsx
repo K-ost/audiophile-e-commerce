@@ -27,7 +27,7 @@ const HeaderCart = styled.div`
 
 const Header: React.FC = () => {
   const [modal, setModal] = useState<boolean>(false)
-  const [nav, setNav] = useState<boolean>(false)
+  const [_, setNav] = useState<boolean>(false)
 
   return (
     <>

@@ -10,6 +10,7 @@ import Btn from "../ui/Btn"
 import delivery from "../assets/svg/delivery.svg"
 import { FormValues, PayType } from "../types"
 import { formFieldsOptions } from "../helpers/utils"
+import Summary from "../components/Summary"
 
 // Styles
 const CheckoutGrid = styled.div`
@@ -162,6 +163,7 @@ const Checkout: React.FC = () => {
 
             <CheckoutBox className="checkout_total">
               <h6>Summary</h6>
+              <Summary />
               <Btn value="CONTINUE & PAY" expand />
             </CheckoutBox>
           </CheckoutGrid>

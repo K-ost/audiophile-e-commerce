@@ -3,7 +3,7 @@ import Btn from "../../ui/Btn"
 import { useNavigate } from "react-router-dom"
 import CartItem from "./CartItem"
 import { useAppStore } from "../../store/store"
-import { getOrderTotal, getOrdersCount } from "../../helpers/utils"
+import { convertPrice, getOrderTotal, getOrdersCount } from "../../helpers/utils"
 
 interface ICartModal {
   close: React.Dispatch<React.SetStateAction<boolean>>
@@ -66,7 +66,7 @@ const CartModal: React.FC<ICartModal> = ({ close }) => {
 
         <Total>
           <div>TOTAL</div>
-          <b>$ {total}</b>
+          <b>$ {convertPrice(total)}</b>
         </Total>
 
         <Btn value="Checkout" handler={toCheckout} expand />

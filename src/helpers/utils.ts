@@ -11,9 +11,14 @@ export const getOrdersCount = (orders: OrderType[]): number => {
 }
 
 // getOrderTotal
-export const getOrderTotal = (orders: OrderType[]): string => {
+export const getOrderTotal = (orders: OrderType[]): number => {
   const output: number = orders.reduce((acum, el) => acum += el.count * el.price, 0)
-  return output.toLocaleString('en-US')
+  return output
+}
+
+// convertPrice
+export const convertPrice = (num: number): string => {
+  return num.toLocaleString('en-US')
 }
 
 // formFieldsOptions

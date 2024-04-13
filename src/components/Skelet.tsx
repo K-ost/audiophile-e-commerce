@@ -39,7 +39,7 @@ const Skelet: React.FC<ISkelet> = ({ number = 1 }) => {
   const list = Array.from(Array(number))
   return (
     <>
-      {list.map((el, index) => (
+      {list.map((_, index) => (
         <SkeletBox key={index} className={`grid grid-2 ${index % 2 !== 0 ? 'odd' : ''}`}>
           <SkeletLine className="skelet_img img" />
           <SkeletDetails className="skelet_details">

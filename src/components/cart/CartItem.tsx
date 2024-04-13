@@ -2,12 +2,13 @@ import styled from "styled-components"
 import Increment from "../../ui/Increment"
 import { Link } from "react-router-dom"
 import { OrderType } from "../../types"
-import { getImageLink } from "../../helpers/utils"
+import { convertPrice, getImageLink } from "../../helpers/utils"
 import { useAppStore } from "../../store/store"
 import { useCallback } from "react"
 
 interface ICartItem {
   el: OrderType
+  type?: 'cart' | 'order'
 }
 
 // Styles
@@ -41,8 +42,12 @@ const ItemPrice = styled.div`
   font-size: 14px;
   font-weight: 700;
 `
+const ItemCount = styled.div`
+  color: var(--color-text);
+  font-weight: 700;
+`
 
-const CartItem: React.FC<ICartItem> = ({ el }) => {
+const CartItem: React.FC<ICartItem> = ({ el, type = 'cart' }) => {
   const { changeQuantityOrder } = useAppStore()
 
   // changeQuantityFunc
@@ -59,9 +64,10 @@ const CartItem: React.FC<ICartItem> = ({ el }) => {
         <ItemTitle>
           <Link to={`/p/${el.slug}`}>{el.name}</Link>
         </ItemTitle>
-        <ItemPrice>$ {el.price.toLocaleString('en-US')}</ItemPrice>
+        <ItemPrice>$ {convertPrice(el.price)}</ItemPrice>
       </ItemDetails>
-      <Increment handler={(val) => changeQuantityFunc(val)} size="small" value={el.count} min={0} />
+      {type === 'cart' && <Increment handler={(val) => changeQuantityFunc(val)} size="small" value={el.count} min={0} />}
+      {type === 'order' && <ItemCount>x{el.count}</ItemCount>}
     </Item>
   )
 }
