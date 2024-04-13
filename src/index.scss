@@ -106,7 +106,7 @@ h6 {
 /* forms */
 .radioBtn {
   background: url(./assets/svg/radio.svg) -9999px no-repeat;
-  &:focus { background-position: center; }
+  &:checked { background-position: center; }
 }
 
 
