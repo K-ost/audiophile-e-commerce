@@ -2,6 +2,7 @@ import styled from "styled-components"
 
 interface IField {
   children: React.ReactNode
+  className?: string
   label?: string
 }
 
@@ -17,9 +18,9 @@ const Div = styled.div`
   }
 `
 
-const Field: React.FC<IField> = ({ children, label }) => {
+const Field: React.FC<IField> = ({ children, className, label }) => {
   return (
-    <Div>
+    <Div className={className}>
       {!!label && <label className="label">{label}</label>}
       {children}
     </Div>

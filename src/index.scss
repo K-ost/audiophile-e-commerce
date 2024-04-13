@@ -17,6 +17,7 @@
   --cat-top: 81px;
   --ff: "Manrope", sans-serif;
   --gap: 30px;
+  --gap-sm: 16px;
   --margin: 160px;
 }
 
@@ -123,7 +124,7 @@ h6 {
     &-#{$i} { grid-template-columns: repeat($i, 1fr); }
   }
   &-narrow {
-    grid-column-gap: 16px;
+    grid-column-gap: var(--gap-sm);
     grid-row-gap: 24px;
   }
 }

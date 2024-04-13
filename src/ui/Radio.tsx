@@ -1,6 +1,7 @@
 import styled from "styled-components"
 
 interface IRadio {
+  checked?: boolean
   expand?: boolean
   handler: any
   label: string
@@ -43,12 +44,13 @@ const RadioBtn = styled.input.attrs({ type: 'radio' })`
   -webkit-appearance: none;
 `
 
-const Radio: React.FC<IRadio> = ({ expand = false, handler, label, name, value }) => {
+const Radio: React.FC<IRadio> = ({ checked, expand = false, handler, label, name, value }) => {
   return (
     <RadioBox $expand={expand}>
       <RadioBtn
         name={name}
         className="radioBtn"
+        defaultChecked={checked}
       />
       {label}
     </RadioBox>
