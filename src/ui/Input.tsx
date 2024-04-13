@@ -6,7 +6,6 @@ interface IInput {
   handler: any
   placeholder?: string
   type?: 'text' | 'email' | 'tel' | 'area'
-  value?: string
 }
 
 // Styles
@@ -30,7 +29,7 @@ const FormControl = styled.input<{ $error: boolean, $expand: boolean }>`
   }
 `
 
-const Input: React.FC<IInput> = ({ error = false, expand = false, handler, placeholder, type = 'text', value }) => {
+const Input: React.FC<IInput> = ({ error = false, expand = false, handler, placeholder, type = 'text' }) => {
   return (
     <FormControl
       type={type}
@@ -38,6 +37,7 @@ const Input: React.FC<IInput> = ({ error = false, expand = false, handler, place
       placeholder={placeholder}
       $error={error}
       $expand={expand}
+      {...handler}
     />
   )
 }

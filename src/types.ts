@@ -46,3 +46,17 @@ export type OrderType = {
   price: number
   count: number
 }
+
+export type PayType = 'emoney' | 'cash'
+
+export type FormValues = {
+  name: string
+  email: string
+  phone: string
+  address: string
+  zipcode: string
+  city: string
+  country: string
+  emoneyNum?: string
+  emoneyPin?: string
+}

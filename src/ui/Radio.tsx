@@ -1,12 +1,12 @@
 import styled from "styled-components"
 
-interface IRadio {
+interface IRadio<T> {
   checked?: boolean
   expand?: boolean
-  handler: any
+  handler: (val: T) => void
   label: string
   name: string
-  value: string
+  value: T
 }
 
 // Styles
@@ -44,13 +44,15 @@ const RadioBtn = styled.input.attrs({ type: 'radio' })`
   -webkit-appearance: none;
 `
 
-const Radio: React.FC<IRadio> = ({ checked, expand = false, handler, label, name, value }) => {
+const Radio = <T extends string>({ checked, expand = false, handler, label, name, value }: IRadio<T>) => {
   return (
     <RadioBox $expand={expand}>
       <RadioBtn
         name={name}
         className="radioBtn"
         defaultChecked={checked}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => handler(e.target.value)}
+        value={value}
       />
       {label}
     </RadioBox>

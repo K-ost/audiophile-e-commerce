@@ -1,13 +1,15 @@
 import styled from "styled-components"
 import Backlink from "../components/Backlink"
 import HeadBanner from "../components/HeadBanner"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useForm } from "react-hook-form"
 import Field from "../ui/Field"
 import Input from "../ui/Input"
 import Radio from "../ui/Radio"
 import Btn from "../ui/Btn"
 import delivery from "../assets/svg/delivery.svg"
+import { FormValues, PayType } from "../types"
+import { formFieldsOptions } from "../helpers/utils"
 
 // Styles
 const CheckoutGrid = styled.div`
@@ -23,7 +25,7 @@ const CheckoutGrid = styled.div`
     .fullgrid { grid-area: 1 / 1 / 2 / 3; }
     .fullgrid-flexed {
       display: flex;
-      label, .group { flex: 1; }
+      .fieldhead, .group { flex: 1; }
       .group {
         padding-left: var(--gap-sm);
         &>* {
@@ -67,21 +69,25 @@ const CheckoutBox = styled.div`
 const Delivery = styled.div`
   background: url(${delivery}) 0 center no-repeat;
   padding-left: 80px;
+  margin-top: 30px;
+  @media screen and (max-width: 750px) {
+    padding-left: 70px;
+  }
 `
 
 const Checkout: React.FC = () => {
-  const { handleSubmit, register, formState: { errors } } = useForm()
+  const [payType, setPayType] = useState<PayType>('emoney')
+  const { handleSubmit, register, reset, formState: { errors } } = useForm<FormValues>()
   
   useEffect(() => {
     document.body.style.backgroundColor = 'var(--color-secondary)'
   }, [])
 
   // submitForm
-  const submitForm = (e: any) => {
+  const submitForm = (e: FormValues) => {
     console.log(e)
+    reset()
   }
-
-  console.log('errors', errors)
 
   return (
     <>
@@ -89,64 +95,68 @@ const Checkout: React.FC = () => {
       <div className="container">
         <Backlink />
 
-        <form onSubmit={handleSubmit(submitForm)}>
+        <form onSubmit={handleSubmit(submitForm)} noValidate>
 
           <CheckoutGrid className="grid grid-3 grid-tb-1">
             <CheckoutBox className="checkout_form">
               <h3>Checkout</h3>
 
-              <div className="subtitle">Billing Details</div>
-              
-              <div className="grid grid-narrow grid-2 grid-mb-1">
-                <Field label="Name">
-                  <Input handler={() => {}} placeholder="Alexei Ward" expand />
-                </Field>
-                <Field label="Name">
-                  <Input type="email" handler={() => {}} placeholder="Email Address" expand />
-                </Field>
-                <Field label="Phone Number">
-                  <Input type="tel" handler={() => {}} placeholder="+1 202-555-0136" expand />
-                </Field>
-              </div>
-              
-              <div className="subtitle">Shipping info</div>
-              
-              <div className="grid grid-narrow grid-2 grid-mb-1">
-                <Field label="Address" className="fullgrid">
-                  <Input handler={() => {}} placeholder="1137 Williams Avenue" expand />
-                </Field>
-                <Field label="ZIP Code">
-                  <Input handler={() => {}} placeholder="10001" expand />
-                </Field>
-                <Field label="City">
-                  <Input handler={() => {}} placeholder="New York" expand />
-                </Field>
-                <Field label="Country">
-                  <Input handler={() => {}} placeholder="United States" expand />
-                </Field>
-              </div>
-              
-              <div className="subtitle">Payment details</div>
-              
-              <div className="grid grid-narrow grid-2 grid-mb-1">
-                <Field label="Payment Method" className="fullgrid fullgrid-flexed">
-                  <div className="group">
-                    <Radio handler={() => {}} label="e-Money" name="payment" value="emoney" checked expand />
-                    <Radio handler={() => {}} label="Cash on Delivery" name="payment" value="cash" expand />
-                  </div>
-                </Field>
+              <div>
+                <div className="subtitle">Billing Details</div>
+                
+                <div className="grid grid-narrow grid-2 grid-mb-1">
+                  <Field label="Name" error={errors && errors.name?.message}>
+                    <Input handler={register('name', formFieldsOptions.name)} placeholder="Alexei Ward" expand error={errors && !!errors.name} />
+                  </Field>
+                  <Field label="Email Address" error={errors && errors.email?.message}>
+                    <Input type="email" handler={register('email', formFieldsOptions.email)} placeholder="alexei@mail.com" expand error={errors && !!errors.email} />
+                  </Field>
+                  <Field label="Phone Number" error={errors && errors.phone?.message}>
+                    <Input type="tel" handler={register('phone', formFieldsOptions.phone)} placeholder="+1 202-555-0136" expand error={errors && !!errors.phone} />
+                  </Field>
+                </div>
+                
+                <div className="subtitle">Shipping info</div>
+                
+                <div className="grid grid-narrow grid-2 grid-mb-1">
+                  <Field label="Address" className="fullgrid" error={errors && errors.address?.message}>
+                    <Input handler={register('address', formFieldsOptions.address)} placeholder="1137 Williams Avenue" expand error={errors && !!errors.address} />
+                  </Field>
+                  <Field label="ZIP Code" error={errors && errors.zipcode?.message}>
+                    <Input handler={register('zipcode', formFieldsOptions.zipcode)} placeholder="10001" expand error={errors && !!errors.zipcode} />
+                  </Field>
+                  <Field label="City" error={errors && errors.city?.message}>
+                    <Input handler={register('city', formFieldsOptions.city)} placeholder="New York" expand error={errors && !!errors.city} />
+                  </Field>
+                  <Field label="Country" error={errors && errors.country?.message}>
+                    <Input handler={register('country', formFieldsOptions.country)} placeholder="United States" expand error={errors && !!errors.country} />
+                  </Field>
+                </div>
+                
+                <div className="subtitle">Payment details</div>
+                
+                <div className="grid grid-narrow grid-2 grid-mb-1">
+                  <Field label="Payment Method" className="fullgrid fullgrid-flexed">
+                    <div className="group">
+                      <Radio<PayType> handler={(val) => setPayType(val)} label="e-Money" name="payment" value="emoney" checked expand />
+                      <Radio<PayType> handler={(val) => setPayType(val)} label="Cash on Delivery" name="payment" value="cash" expand />
+                    </div>
+                  </Field>
 
-                <Field label="e-Money Number">
-                  <Input handler={() => {}} placeholder="238521993" expand />
-                </Field>
-                <Field label="e-Money PIN">
-                  <Input handler={() => {}} placeholder="6891" expand />
-                </Field>
+                  {payType === 'emoney' && <>
+                    <Field label="e-Money Number" error={errors && errors.emoneyNum?.message}>
+                      <Input handler={register('emoneyNum', formFieldsOptions.emoneyNum)} placeholder="238521993" expand error={errors && !!errors.emoneyNum} />
+                    </Field>
+                    <Field label="e-Money PIN" error={errors && errors.emoneyPin?.message}>
+                      <Input handler={register('emoneyPin', formFieldsOptions.emoneyPin)} placeholder="6891" expand error={errors && !!errors.emoneyPin} />
+                    </Field>
+                  </>}
+                </div>
               </div>
 
-              <Delivery className="fullgrid">
+              {payType === 'cash' && <Delivery className="fullgrid">
                 The "Cash on Delivery" option enables you to pay in cash when our delivery courier arrives at your residence. Just make sure your address is correct so that your order will not be cancelled.
-              </Delivery>
+              </Delivery>}
               
             </CheckoutBox>
 
