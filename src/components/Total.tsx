@@ -86,9 +86,9 @@ const Total: React.FC<ITotal> = ({ orders, total }) => {
             })}
           </Inner>
         </List>
-        <Line>
+        {orders.length > 1 && <Line>
           <a href="#" onClick={openHandler}>{open ? 'View less' : 'and 2 other item(s)'}</a>
-        </Line>
+        </Line>}
       </div>
       <div className="total_part">
         <span>Grand Total</span>

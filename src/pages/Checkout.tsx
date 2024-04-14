@@ -184,7 +184,7 @@ const Checkout: React.FC = () => {
         
       </div>
 
-      <Modal modal={modal} close={() => setModal(false)}>
+      <Modal modal={modal} close={() => {}}>
         <img src={checkIcon} alt="" />
         <h3>THANK YOU<br /> FOR YOUR ORDER</h3>
         <div className="article">You will receive an email confirmation shortly.</div>

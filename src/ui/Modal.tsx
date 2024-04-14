@@ -10,33 +10,36 @@ interface IModal {
 }
 
 // Styles
+const PopupWrap = styled.div<{ $open: boolean }>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  overflow: auto;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  padding: 48px 24px;
+  opacity: ${props => props.$open ? 1 : 0};
+  visibility: ${props => props.$open ? 'visible' : 'hidden'};
+  z-index: 1500;
+`
 const Popup = styled.div<{ $open: boolean, $position: ModalPositionType }>`
   background: var(--color-light);
   border-radius: 8px;
-  position: absolute;
+  position: relative;
+  padding: 48px;
   ${props => props.$position === 'top-right' ? `
-    top: 123px;
-    left: 50%;
     padding: 32px;
     width: 378px;
-    margin-left: calc( var(--container) / 2 - 378px );
   ` : `
-    left: 50%;
-    top: 50%;
     padding: 48px;
-    transform: translate(-50%,-50%);
     width: 540px;
   `}
-  opacity: ${props => props.$open ? 1 : 0};
-  visibility: ${props => props.$open ? 'visible' : 'hidden'};
   transition: var(--animate);
   z-index: 1500;
   @media screen and (max-width: 750px) {
-    top: 114px;
-    left: 24px;
-    right: 24px;
-    width: auto;
-    margin: 0;
     padding: 32px;
     ${props => props.$position === 'center' && `
       transform: none;
@@ -67,12 +70,12 @@ const Modal: React.FC<IModal> = ({ children, close, modal, position = 'center' }
   }, [modal])
 
   return (
-    <>
+    <PopupWrap $open={modal}>
       <Popup $open={modal} $position={position}>
         {children}
       </Popup>
       <Overlay $open={modal} onClick={() => close(false)} />
-    </>
+    </PopupWrap>
   )
 }
 
