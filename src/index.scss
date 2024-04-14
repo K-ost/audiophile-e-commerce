@@ -97,6 +97,9 @@ h6 {
   margin: 0 0 16px;
   text-transform: uppercase;
 }
+.article {
+  margin: 0 0 32px;
+}
 
 
 /* btns */
@@ -155,7 +158,8 @@ h6 {
   }
   .container { padding-left: 24px; padding-right: 24px; }
   .grid-mb-1 { grid-template-columns: repeat(1, 1fr); }
-  h3 { font-size: 24px; line-height: 36px; letter-spacing: 0.86px; }
+  h3 { font-size: 24px; line-height: 36px; letter-spacing: 0.86px; margin: 24px 0 16px; }
+  .article { margin: 0 0 24px; }
 
   
 }

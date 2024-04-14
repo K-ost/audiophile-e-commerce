@@ -89,6 +89,7 @@ const Checkout: React.FC = () => {
   const VAT: number = total * 20 / 100
   const totalWithTaxes = total + SHIPPING + VAT 
   const { handleSubmit, register, reset, formState: { errors } } = useForm<FormValues>()
+  const [modal, setModal] = useState<boolean>(false)
   
   useEffect(() => {
     document.body.style.backgroundColor = 'var(--color-secondary)'
@@ -98,6 +99,7 @@ const Checkout: React.FC = () => {
   const submitForm = (e: FormValues) => {
     console.log(e)
     reset()
+    setModal(true)
   }
 
   return (
@@ -182,10 +184,10 @@ const Checkout: React.FC = () => {
         
       </div>
 
-      <Modal modal={true} close={() => {}}>
+      <Modal modal={modal} close={() => setModal(false)}>
         <img src={checkIcon} alt="" />
         <h3>THANK YOU<br /> FOR YOUR ORDER</h3>
-        <p>You will receive an email confirmation shortly.</p>
+        <div className="article">You will receive an email confirmation shortly.</div>
         <Total orders={orders} total={totalWithTaxes} />
         <Btn to="/" value="Back to home" expand />
       </Modal>

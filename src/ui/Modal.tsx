@@ -32,12 +32,14 @@ const Popup = styled.div<{ $open: boolean, $position: ModalPositionType }>`
   transition: var(--animate);
   z-index: 1500;
   @media screen and (max-width: 750px) {
-    ${props => props.$position === 'top-right' && `
-      top: 114px;
-      left: 24px;
-      right: 24px;
-      width: auto;
-      margin: 0;
+    top: 114px;
+    left: 24px;
+    right: 24px;
+    width: auto;
+    margin: 0;
+    padding: 32px;
+    ${props => props.$position === 'center' && `
+      transform: none;
     `
   }
 `
