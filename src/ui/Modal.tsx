@@ -44,7 +44,7 @@ const Popup = styled.div<{ $open: boolean, $position: ModalPositionType }>`
   }
 `
 const Overlay = styled.div<{ $open: boolean }>`
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.75);
   position: fixed;
   left: 0;
   top: 0;

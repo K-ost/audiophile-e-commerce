@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import { GalleryType } from "../types"
 import { getImageLink } from "../helpers/utils"
+import Fancybox from "../helpers/Fancybox"
 
 interface IGallery {
   gallery: GalleryType
@@ -31,17 +32,27 @@ const GalleryBox = styled.div`
 
 const Gallery: React.FC<IGallery> = ({ gallery }) => {
   return (
-    <GalleryBox className="grid grid-12 grid-mb-1">
-      <div>
-        <a href="#"><img src={getImageLink(gallery.first)} alt="" /></a>
-      </div>
-      <div>
-        <a href="#"><img src={getImageLink(gallery.second)} alt="" /></a>
-      </div>
-      <div>
-        <a href="#"><img src={getImageLink(gallery.third)} alt="" /></a>
-      </div>
-    </GalleryBox>
+    <Fancybox options={{
+      Carousel: {
+        infinite: false,
+      },
+      Toolbar: false,
+      Thumbs: {
+        type: "classic",
+      },
+    }}>
+      <GalleryBox className="grid grid-12 grid-mb-1">
+        <div>
+          <a href={getImageLink(gallery.first)} data-fancybox="gallery"><img src={getImageLink(gallery.first)} alt="" /></a>
+        </div>
+        <div>
+          <a href={getImageLink(gallery.second)} data-fancybox="gallery"><img src={getImageLink(gallery.second)} alt="" /></a>
+        </div>
+        <div>
+          <a href={getImageLink(gallery.third)} data-fancybox="gallery"><img src={getImageLink(gallery.third)} alt="" /></a>
+        </div>
+      </GalleryBox>
+    </Fancybox>
   )
 }
 
