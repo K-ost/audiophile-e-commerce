@@ -1,7 +1,15 @@
 import styled from "styled-components"
-import { useAppStore } from "../store/store"
 import CartItem from "./cart/CartItem"
-import { convertPrice, getOrderTotal } from "../helpers/utils"
+import { convertPrice } from "../helpers/utils"
+import { OrderType } from "../types"
+
+interface ISummary {
+  orders: OrderType[]
+  total: number
+  shipping: number
+  vat: number
+  totalWithTaxes: number
+}
 
 // Styles
 const Total = styled.ul`
@@ -25,14 +33,7 @@ const Value = styled.div`
   &.grand_total { color: var(--color-primary); }
 `
 
-const SHIPPING: number = 50
-
-const Summary: React.FC = () => {
-  const { orders } = useAppStore()
-  const total = getOrderTotal(orders)
-  const VAT: number = total * 20 / 100
-  const totalWithTaxes = total + SHIPPING + VAT 
-
+const Summary: React.FC<ISummary> = ({ shipping, vat, orders, total, totalWithTaxes }) => {
   return (
     <div>
       {orders.map(el => <CartItem key={el.id} el={el} type="order" />)}
@@ -43,11 +44,11 @@ const Summary: React.FC = () => {
         </li>
         <li>
           <div>Shipping</div>
-          <Value>$ {SHIPPING}</Value>
+          <Value>$ {shipping}</Value>
         </li>
         <li className="vat">
           <div>VAT (Included)</div>
-          <Value>$ {convertPrice(VAT)}</Value>
+          <Value>$ {convertPrice(vat)}</Value>
         </li>
         <li>
           <div>Grand Total</div>

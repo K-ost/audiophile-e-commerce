@@ -9,8 +9,12 @@ import Radio from "../ui/Radio"
 import Btn from "../ui/Btn"
 import delivery from "../assets/svg/delivery.svg"
 import { FormValues, PayType } from "../types"
-import { formFieldsOptions } from "../helpers/utils"
+import { formFieldsOptions, getOrderTotal } from "../helpers/utils"
 import Summary from "../components/Summary"
+import Modal from "../ui/Modal"
+import checkIcon from "../assets/svg/check.svg"
+import Total from "../components/Total"
+import { useAppStore } from "../store/store"
 
 // Styles
 const CheckoutGrid = styled.div`
@@ -76,8 +80,14 @@ const Delivery = styled.div`
   }
 `
 
+const SHIPPING: number = 50
+
 const Checkout: React.FC = () => {
   const [payType, setPayType] = useState<PayType>('emoney')
+  const { orders } = useAppStore()
+  const total = getOrderTotal(orders)
+  const VAT: number = total * 20 / 100
+  const totalWithTaxes = total + SHIPPING + VAT 
   const { handleSubmit, register, reset, formState: { errors } } = useForm<FormValues>()
   
   useEffect(() => {
@@ -163,7 +173,7 @@ const Checkout: React.FC = () => {
 
             <CheckoutBox className="checkout_total">
               <h6>Summary</h6>
-              <Summary />
+              <Summary orders={orders} shipping={SHIPPING} total={total} totalWithTaxes={totalWithTaxes} vat={VAT} />
               <Btn value="CONTINUE & PAY" expand />
             </CheckoutBox>
           </CheckoutGrid>
@@ -171,6 +181,14 @@ const Checkout: React.FC = () => {
         </form>
         
       </div>
+
+      <Modal modal={true} close={() => {}}>
+        <img src={checkIcon} alt="" />
+        <h3>THANK YOU<br /> FOR YOUR ORDER</h3>
+        <p>You will receive an email confirmation shortly.</p>
+        <Total orders={orders} total={totalWithTaxes} />
+        <Btn to="/" value="Back to home" expand />
+      </Modal>
     </>
   )
 }
