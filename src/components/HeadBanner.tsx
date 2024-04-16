@@ -20,7 +20,7 @@ const Head = styled.div<{ $type: HeadType }>`
   `}
   margin: 0 0 ${props => props.$type === 'banner' ? '120px' : '79px'};
   position: relative;
-  .container {
+  &>.container {
     align-items: center;
     display: flex;
     justify-content: space-between;

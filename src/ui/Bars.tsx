@@ -1,24 +1,47 @@
 import styled from "styled-components"
 
 interface IBars {
+  nav: boolean
   open: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 // Styles
-const BarsBtn = styled.button`
-  align-items: center;
+const BarsBtn = styled.button<{ $opened: boolean }>`
   background: 0;
   border: 0;
   border-radius: 0;
   cursor: pointer;
   display: none;
   height: 32px;
-  justify-content: center;
   outline: 0;
   margin: 0 42px 0 0;
   padding: 0;
   min-width: 32px;
   max-width: 32px;
+  position: relative;
+  span {
+    background: var(--color-white);
+    height: 3px;
+    width: 16px;
+    position: absolute;
+    left: 8px;
+    top: 50%;
+    margin-top: -1px;
+    transition: var(--animate);
+    &.top {
+      top: ${props => props.$opened ? '16px' : '10px'};
+      transform: ${props => props.$opened ? 'rotate(45deg)' : 'none'};
+    }
+    &.middle {
+      opacity: ${props => props.$opened ? '0' : '1'};
+      transform: ${props => props.$opened ? 'translateX(-10px)' : 'none'};
+    }
+    &.bottom {
+      bottom: ${props => props.$opened ? '14px' : '8px'};
+      top: auto;
+      transform: ${props => props.$opened ? 'rotate(-45deg)' : 'none'};
+    }
+  }
   @media screen and (max-width: 1020px) {
     display: inline-flex;
   }
@@ -27,14 +50,12 @@ const BarsBtn = styled.button`
   }
 `
 
-const Bars: React.FC<IBars> = ({ open }) => {
+const Bars: React.FC<IBars> = ({ nav, open }) => {
   return (
-    <BarsBtn onClick={() => open(true)}>
-      <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="16" height="3" fill="white"/>
-        <rect y="6" width="16" height="3" fill="white"/>
-        <rect y="12" width="16" height="3" fill="white"/>
-      </svg>
+    <BarsBtn onClick={() => open(!nav)} $opened={nav}>
+      <span className="top"></span>
+      <span className="middle"></span>
+      <span className="bottom"></span>
     </BarsBtn>
   )
 }
