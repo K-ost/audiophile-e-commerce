@@ -15,6 +15,7 @@ import Modal from "../ui/Modal"
 import checkIcon from "../assets/svg/check.svg"
 import Total from "../components/Total"
 import { useAppStore } from "../store/store"
+import { useNavigate } from "react-router-dom"
 
 // Styles
 const CheckoutGrid = styled.div`
@@ -84,12 +85,13 @@ const SHIPPING: number = 50
 
 const Checkout: React.FC = () => {
   const [payType, setPayType] = useState<PayType>('emoney')
-  const { orders } = useAppStore()
+  const { orders, removeAllOrders } = useAppStore()
   const total = getOrderTotal(orders)
   const VAT: number = total * 20 / 100
   const totalWithTaxes = total + SHIPPING + VAT 
   const { handleSubmit, register, reset, formState: { errors } } = useForm<FormValues>()
   const [modal, setModal] = useState<boolean>(false)
+  const navigate = useNavigate()
   
   useEffect(() => {
     document.body.style.backgroundColor = 'var(--color-secondary)'
@@ -97,9 +99,14 @@ const Checkout: React.FC = () => {
 
   // submitForm
   const submitForm = (e: FormValues) => {
-    console.log(e)
     reset()
     setModal(true)
+  }
+
+  // backToHome
+  const backToHome = () => {
+    navigate('/')
+    removeAllOrders()
   }
 
   return (
@@ -189,7 +196,7 @@ const Checkout: React.FC = () => {
         <h3>THANK YOU<br /> FOR YOUR ORDER</h3>
         <div className="article">You will receive an email confirmation shortly.</div>
         <Total orders={orders} total={totalWithTaxes} />
-        <Btn to="/" value="Back to home" expand />
+        <Btn handler={backToHome} value="Back to home" expand />
       </Modal>
     </>
   )

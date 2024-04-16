@@ -51,6 +51,8 @@ const ItemCount = styled.div`
 const CartItem: React.FC<ICartItem> = ({ el, type = 'cart' }) => {
   const { changeQuantityOrder } = useAppStore()
 
+  if (!el) return null
+
   // changeQuantityFunc
   const changeQuantityFunc = useCallback((val: number) => {
     changeQuantityOrder(val, el.id)
