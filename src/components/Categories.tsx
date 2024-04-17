@@ -4,6 +4,7 @@ import cat2 from "../assets/imgs/cat2.png"
 import cat3 from "../assets/imgs/cat3.png"
 import oval from "../assets/oval.png"
 import MoreBtn from "../ui/MoreBtn"
+import { motion, useMotionValueEvent, useScroll } from "framer-motion"
 
 // Styles
 const Cats = styled.div`
@@ -48,15 +49,21 @@ const CatItemImg = styled.div`
 `
 
 const Categories: React.FC = () => {
+  const { scrollYProgress } = useScroll()
+
+  console.log(scrollYProgress)
+
   return (
     <Cats className="grid grid-3 grid-mb-1">
-      <CatItem>
-        <CatItemImg>
-          <img src={cat1} alt="" />
-        </CatItemImg>
-        <h6>Headphones</h6>
-        <MoreBtn title="Shop" url="/headphones" />
-      </CatItem>
+      <motion.div style={{ translateY: scrollYProgress }}>
+        <CatItem>
+          <CatItemImg>
+            <img src={cat1} alt="" />
+          </CatItemImg>
+          <h6>Headphones</h6>
+          <MoreBtn title="Shop" url="/headphones" />
+        </CatItem>
+      </motion.div>
       <CatItem>
         <CatItemImg>
           <img src={cat2} alt="" />
