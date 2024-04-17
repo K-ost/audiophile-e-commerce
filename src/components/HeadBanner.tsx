@@ -2,6 +2,7 @@ import styled from "styled-components"
 import Btn from "../ui/Btn"
 import img from "../assets/imgs/xx99.png"
 import Header, { HeaderBox } from "./Header"
+import { motion } from "framer-motion"
 
 type HeadType = 'simple' | 'title' | 'banner'
 
@@ -123,10 +124,34 @@ const HeadBanner: React.FC<IHeadBanner> = ({ title, type = 'simple' }) => {
       <Header />
       {type === 'banner' && <div className="container container-banner">
         <Detail>
-          <HeadNew>NEW PRODUCT</HeadNew>
-          <HeadTitle>XX99 Mark II Headphones</HeadTitle>
-          <HeadText>Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.</HeadText>
-          <Btn value="See Product" to="/p/xx99-mark-two-headphones" />
+          <motion.div
+            initial={{ opacity: 0, x: 150 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
+          >
+            <HeadNew>NEW PRODUCT</HeadNew>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 150 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.5, ease: "easeOut" }}
+          >
+            <HeadTitle>XX99 Mark II Headphones</HeadTitle>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 150 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.8, ease: "easeOut" }}
+          >
+            <HeadText>Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.</HeadText>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 1.1, ease: "easeOut" }}
+          >
+            <Btn value="See Product" to="/p/xx99-mark-two-headphones" />
+          </motion.div>
         </Detail>
       </div>}
       {type === 'title' && <HeadName className="container">{title}</HeadName>}
