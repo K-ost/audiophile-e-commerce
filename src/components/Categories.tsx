@@ -4,7 +4,8 @@ import cat2 from "../assets/imgs/cat2.png"
 import cat3 from "../assets/imgs/cat3.png"
 import oval from "../assets/oval.png"
 import MoreBtn from "../ui/MoreBtn"
-import { motion, useMotionValueEvent, useScroll } from "framer-motion"
+import { useInView } from "framer-motion"
+import { useRef } from "react"
 
 // Styles
 const Cats = styled.div`
@@ -49,29 +50,41 @@ const CatItemImg = styled.div`
 `
 
 const Categories: React.FC = () => {
-  const { scrollYProgress } = useScroll()
-
-  console.log(scrollYProgress)
+  const ref = useRef<HTMLDivElement>(null)
+  const isInView = useInView(ref, { once: true })
 
   return (
-    <Cats className="grid grid-3 grid-mb-1">
-      <motion.div style={{ translateY: scrollYProgress }}>
-        <CatItem>
-          <CatItemImg>
-            <img src={cat1} alt="" />
-          </CatItemImg>
-          <h6>Headphones</h6>
-          <MoreBtn title="Shop" url="/headphones" />
-        </CatItem>
-      </motion.div>
-      <CatItem>
+    <Cats className="grid grid-3 grid-mb-1" ref={ref}>
+      <CatItem style={{
+        transform: isInView ? "none" : "translateY(50px)",
+        opacity: isInView ? 1 : 0,
+        transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+        transitionDelay: '0ms'
+      }}>
+        <CatItemImg>
+          <img src={cat1} alt="" />
+        </CatItemImg>
+        <h6>Headphones</h6>
+        <MoreBtn title="Shop" url="/headphones" />
+      </CatItem>
+      <CatItem style={{
+        transform: isInView ? "none" : "translateY(50px)",
+        opacity: isInView ? 1 : 0,
+        transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+        transitionDelay: '200ms'
+      }}>
         <CatItemImg>
           <img src={cat2} alt="" />
         </CatItemImg>
         <h6>Speakers</h6>
         <MoreBtn title="Shop" url="/speakers" />
       </CatItem>
-      <CatItem>
+      <CatItem style={{
+        transform: isInView ? "none" : "translateY(50px)",
+        opacity: isInView ? 1 : 0,
+        transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+        transitionDelay: '400ms'
+      }}>
         <CatItemImg>
           <img src={cat3} alt="" />
         </CatItemImg>
