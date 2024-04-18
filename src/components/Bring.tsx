@@ -1,5 +1,7 @@
 import styled from "styled-components"
 import bring from "../assets/imgs/bring.jpg"
+import { useRef } from "react"
+import { useInView } from "framer-motion"
 
 // Styles
 const Grid = styled.div`
@@ -37,14 +39,36 @@ const GridImg = styled.div`
   }
 `
 
+const TRANSITION: string = 'all 0.7s ease-out'
+
 const Bring: React.FC = () => {
+  const ref = useRef<HTMLDivElement>(null)
+  const isInView = useInView(ref, { amount: 'all', once: true })
+
   return (
-    <Grid>
+    <Grid ref={ref}>
       <div>
-        <h2>Bringing you the <span className="color-primary">best</span> audio gear</h2>
-        <p>Located at the heart of New York City, Audiophile is the premier store for high end headphones, earphones, speakers, and audio accessories. We have a large showroom and luxury demonstration rooms available for you to browse and experience a wide range of our products. Stop by our store to meet some of the fantastic people who make Audiophile the best place to buy your portable audio equipment.</p>
+        <h2 style={{
+          opacity: isInView ? 1 : 0,
+          transform: isInView ? 'none' : 'translateX(-100px)',
+          transition: TRANSITION,
+          transitionDelay: `0ms`
+        }}>Bringing you the <span className="color-primary">best</span> audio gear</h2>
+        <div style={{
+          opacity: isInView ? 1 : 0,
+          transform: isInView ? 'none' : 'translateX(100px)',
+          transition: TRANSITION,
+          transitionDelay: `100ms`
+        }}>
+          <p>Located at the heart of New York City, Audiophile is the premier store for high end headphones, earphones, speakers, and audio accessories. We have a large showroom and luxury demonstration rooms available for you to browse and experience a wide range of our products. Stop by our store to meet some of the fantastic people who make Audiophile the best place to buy your portable audio equipment.</p>
+        </div>
       </div>
-      <div>
+      <div style={{
+        opacity: isInView ? 1 : 0,
+        transform: isInView ? 'none' : 'translateY(100px)',
+        transition: TRANSITION,
+        transitionDelay: `200ms`
+      }}>
         <GridImg />
       </div>
     </Grid>
