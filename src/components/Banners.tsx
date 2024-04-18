@@ -4,6 +4,9 @@ import image2 from "../assets/imgs/zx7.jpg"
 import image3 from "../assets/imgs/yx1.jpg"
 import circle from "../assets/svg/circle.svg"
 import styled from "styled-components"
+import { useRef } from "react"
+import { useInView } from "framer-motion"
+import { animStyles, moveToTop, moveToBottom, moveToLeft, moveToRight } from "../helpers/utils"
 
 
 type SizeBannerType = 'small' | 'large'
@@ -97,25 +100,45 @@ const Details = styled.div`
 `
 
 const Banners: React.FC<IBanners> = ({ size = 'small' }) => {
+  const ref1 = useRef<HTMLDivElement>(null)
+  const ref2 = useRef<HTMLDivElement>(null)
+  const ref3 = useRef<HTMLDivElement>(null)
+  const isInView = useInView(ref1, { amount: 'all', once: true })
+  const isInView2 = useInView(ref2, { amount: 'all', once: true })
+  const isInView3 = useInView(ref3, { amount: 'all', once: true })
+
   return (
     <Wrap>
-      <Box $size="big" className="big">
-        <img src={image} alt="" className="bigImage" />
+      <Box $size="big" className="big" ref={ref1}>
+        <img src={image} alt="" className="bigImage" style={{ ...animStyles(isInView), ...moveToTop(isInView) }} />
         <Details>
-          <BoxTitle $size={size}>ZX9 SPEAKER</BoxTitle>
-          <p>Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.</p>
-          <Btn value="See Product" color="black" to="/p/zx9-speaker" />
+          <BoxTitle $size={size} style={{ ...animStyles(isInView), ...moveToBottom(isInView), transitionDelay: '400ms' }}>ZX9 SPEAKER</BoxTitle>
+          <p style={{ ...animStyles(isInView), ...moveToBottom(isInView), transitionDelay: '200ms' }}>Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.</p>
+          <div style={{ ...animStyles(isInView), ...moveToBottom(isInView) }}>
+            <Btn value="See Product" color="black" to="/p/zx9-speaker" />
+          </div>
         </Details>
       </Box>
 
-      <Box style={{ backgroundImage: `url(${image2})` }}>
-        <BoxTitle $size={size}>ZX7 SPEAKER</BoxTitle>
-        <Btn value="See Product" color="secondary" to="/p/zx7-speaker" />
+      <Box style={{ backgroundImage: `url(${image2})` }} ref={ref2}>
+        <BoxTitle $size={size} style={{ ...animStyles(isInView2), ...moveToLeft(isInView2) }}>ZX7 SPEAKER</BoxTitle>
+        <div style={{ ...animStyles(isInView2), ...moveToRight(isInView2) }}>
+          <Btn value="See Product" color="secondary" to="/p/zx7-speaker" />
+        </div>
       </Box>
 
-      <div className="grid grid-2 grid-mb-1">
-        <Box style={{ backgroundImage: `url(${image3})` }} className="small"></Box>
-        <Box style={{ backgroundColor: '#f1f1f1' }} className="small">
+      <div className="grid grid-2 grid-mb-1" ref={ref3}>
+        <Box style={{
+          backgroundImage: `url(${image3})`,
+          ...animStyles(isInView3),
+          ...moveToTop(isInView3)
+        }} className="small"></Box>
+        <Box style={{
+          backgroundColor: '#f1f1f1',
+          ...animStyles(isInView3),
+          ...moveToTop(isInView3),
+          transitionDelay: '200ms'
+        }} className="small">
           <BoxTitle $size={size}>YX1 EARPHONES</BoxTitle>
           <Btn value="See Product" color="secondary" to="/p/yx1-earphones" />
         </Box>

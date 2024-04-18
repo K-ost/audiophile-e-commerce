@@ -33,3 +33,29 @@ export const formFieldsOptions = {
   emoneyNum: { required: 'Required field', minLength: 6 },
   emoneyPin: { required: 'Required field', minLength: 4 },
 }
+
+// animStyles
+export const animStyles = (isInView: boolean) => ({
+  opacity: isInView ? 1 : 0,
+  transition: 'all 0.5s ease-out',
+})
+
+// moveToTop
+export const moveToTop = (isInView: boolean) => ({
+  transform: isInView ? 'none' : 'translateY(100px)'
+})
+
+// moveToBottom
+export const moveToBottom = (isInView: boolean) => ({
+  transform: isInView ? 'none' : 'translateY(-100px)'
+})
+
+// moveToLeft
+export const moveToLeft = (isInView: boolean) => ({
+  transform: isInView ? 'none' : 'translateX(100px)'
+})
+
+// moveToRight
+export const moveToRight = (isInView: boolean) => ({
+  transform: isInView ? 'none' : 'translateX(-100px)'
+})
