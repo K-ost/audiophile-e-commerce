@@ -42,7 +42,7 @@ const GridImg = styled.div`
 
 const Bring: React.FC = () => {
   const ref = useRef<HTMLDivElement>(null)
-  const isInView = useInView(ref, { amount: 'all', once: true })
+  const isInView = useInView(ref, { amount: 'some', once: true })
 
   return (
     <Grid ref={ref}>
