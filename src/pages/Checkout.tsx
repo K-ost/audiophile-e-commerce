@@ -99,6 +99,7 @@ const Checkout: React.FC = () => {
 
   // submitForm
   const submitForm = (e: FormValues) => {
+    console.log(e)
     reset()
     setModal(true)
   }

@@ -51,7 +51,7 @@ const Radio = <T extends string>({ checked, expand = false, handler, label, name
         name={name}
         className="radioBtn"
         defaultChecked={checked}
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) => handler(e.target.value)}
+        onChange={(e: any) => handler(e.target.value)}
         value={value}
       />
       {label}
