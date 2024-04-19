@@ -91,7 +91,7 @@ const Card: React.FC<ICard> = ({ el, odd, store }) => {
         <img src={getImageLink(el.image)} alt="" />
       </ProductBoxImg>
       <div className="details">
-        {el.new && <ProductNew>NEW PRODUCT {count}</ProductNew>}
+        {el.new && <ProductNew>NEW PRODUCT</ProductNew>}
         <ProductTitle>{el.name}</ProductTitle>
         <ProductText dangerouslySetInnerHTML={{ __html: el.description }}></ProductText>
         

@@ -73,7 +73,6 @@ const CheckoutBox = styled.div`
   }
 `
 const Delivery = styled.div`
-  background: url(${delivery}) 0 center no-repeat;
   padding-left: 80px;
   margin-top: 30px;
   @media screen and (max-width: 750px) {
@@ -175,7 +174,7 @@ const Checkout: React.FC = () => {
                 </div>
               </div>
 
-              {payType === 'cash' && <Delivery className="fullgrid">
+              {payType === 'cash' && <Delivery className="fullgrid delivery">
                 The "Cash on Delivery" option enables you to pay in cash when our delivery courier arrives at your residence. Just make sure your address is correct so that your order will not be cancelled.
               </Delivery>}
               
