@@ -2,7 +2,7 @@ import styled from "styled-components"
 import bring from "../assets/imgs/bring.jpg"
 import { useRef } from "react"
 import { useInView } from "framer-motion"
-import { animStyles, moveToLeft, moveToRight } from "../helpers/utils"
+import { animStyles, moveToTop } from "../helpers/utils"
 
 // Styles
 const Grid = styled.div`
@@ -49,12 +49,12 @@ const Bring: React.FC = () => {
       <div>
         <h2 style={{
           ...animStyles(isInView),
-          ...moveToLeft(isInView),
+          ...moveToTop(isInView),
           transitionDelay: `0ms`
         }}>Bringing you the <span className="color-primary">best</span> audio gear</h2>
         <div style={{
           ...animStyles(isInView),
-          ...moveToRight(isInView),
+          ...moveToTop(isInView),
           transitionDelay: `100ms`
         }}>
           <p>Located at the heart of New York City, Audiophile is the premier store for high end headphones, earphones, speakers, and audio accessories. We have a large showroom and luxury demonstration rooms available for you to browse and experience a wide range of our products. Stop by our store to meet some of the fantastic people who make Audiophile the best place to buy your portable audio equipment.</p>

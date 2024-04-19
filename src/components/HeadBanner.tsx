@@ -32,7 +32,7 @@ const Head = styled.div<{ $type: HeadType }>`
       position: absolute;
       top: 0;
       width: 100%;
-      z-index: 10;
+      z-index: 1300;
     `}
     .container {
       ${props => props.$type !== 'simple' && 'border-bottom: 1px solid #313131;'}
@@ -114,7 +114,8 @@ const HeadText = styled.div`
   margin: 0 0 40px;
   max-width: 349px;
   @media screen and (max-width: 750px) {
-    margin: 0 0 24px;
+    margin: 0 20px 24px;
+    max-width: none;
   }
 `
 
@@ -125,22 +126,22 @@ const HeadBanner: React.FC<IHeadBanner> = ({ title, type = 'simple' }) => {
       {type === 'banner' && <div className="container container-banner">
         <Detail>
           <motion.div
-            initial={{ opacity: 0, x: 150 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 150 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
           >
             <HeadNew>NEW PRODUCT</HeadNew>
           </motion.div>
           <motion.div
-            initial={{ opacity: 0, x: 150 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 150 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.5, ease: "easeOut" }}
           >
             <HeadTitle>XX99 Mark II Headphones</HeadTitle>
           </motion.div>
           <motion.div
-            initial={{ opacity: 0, x: 150 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 150 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.8, ease: "easeOut" }}
           >
             <HeadText>Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.</HeadText>

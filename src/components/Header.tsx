@@ -29,7 +29,6 @@ const NavStyles = css<{ $opened: boolean }>`
   opacity: ${props => props.$opened ? '1' : '0'};
   visibility: ${props => props.$opened ? 'visible' : 'hidden'};
   transition: var(--animate);
-  top: 97px;
   left: 0;
   width: 100%;
 `
@@ -37,7 +36,8 @@ const MobileMenuBackDrop = styled.div<{ $opened: boolean }>`
   background: rgba(0,0,0,0.75);
   position: fixed;
   bottom: 0;
-  z-index: 1900;
+  top: 0;
+  z-index: 1200;
   ${NavStyles}
 `
 const MobileMenu = styled.div<{ $opened: boolean }>`
@@ -45,6 +45,7 @@ const MobileMenu = styled.div<{ $opened: boolean }>`
   border-radius: 0 0 8px 8px;
   position: absolute;
   padding: 54px 0;
+  top: 97px;
   z-index: 2000;
   ${NavStyles}
   @media screen and (max-width: 750px) {
