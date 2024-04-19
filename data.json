@@ -46,7 +46,7 @@
       {
         "slug": "xx59-headphones",
         "name": "XX59",
-        "image": "../assets/shared/desktop/image-xx59-headphones.jpg"
+        "image": "https://i.ibb.co/KrjLvDq/image-product.jpg"
       },
       {
         "slug": "zx9-speaker",
@@ -59,7 +59,7 @@
     "id": 2,
     "slug": "xx59-headphones",
     "name": "XX59 Headphones",
-    "image": "../assets/product-xx59-headphones/desktop/image-product.jpg",
+    "image": "https://i.ibb.co/KrjLvDq/image-product.jpg",
     "category": "headphones",
     "categoryImage": "../assets/product-xx59-headphones/desktop/image-category-page-preview.jpg",
     "new": false,
@@ -150,7 +150,7 @@
       {
         "slug": "xx59-headphones",
         "name": "XX59",
-        "image": "../assets/shared/desktop/image-xx59-headphones.jpg"
+        "image": "https://i.ibb.co/KrjLvDq/image-product.jpg"
       },
       {
         "slug": "zx9-speaker",
@@ -206,7 +206,7 @@
       {
         "slug": "xx59-headphones",
         "name": "XX59",
-        "image": "../assets/shared/desktop/image-xx59-headphones.jpg"
+        "image": "https://i.ibb.co/KrjLvDq/image-product.jpg"
       },
       {
         "slug": "zx9-speaker",
@@ -267,7 +267,7 @@
       {
         "slug": "xx59-headphones",
         "name": "XX59",
-        "image": "../assets/shared/desktop/image-xx59-headphones.jpg"
+        "image": "https://i.ibb.co/KrjLvDq/image-product.jpg"
       }
     ]
   },
@@ -323,7 +323,7 @@
       {
         "slug": "xx59-headphones",
         "name": "XX59",
-        "image": "../assets/shared/desktop/image-xx59-headphones.jpg"
+        "image": "https://i.ibb.co/KrjLvDq/image-product.jpg"
       }
     ]
   }
