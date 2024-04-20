@@ -1,6 +1,5 @@
 import styled from "styled-components"
 import { GalleryType } from "../types"
-import { getImageLink } from "../helpers/utils"
 import Fancybox from "../helpers/Fancybox"
 
 interface IGallery {
@@ -43,13 +42,13 @@ const Gallery: React.FC<IGallery> = ({ gallery }) => {
     }}>
       <GalleryBox className="grid grid-12 grid-mb-1">
         <div>
-          <a href={getImageLink(gallery.first)} data-fancybox="gallery"><img src={getImageLink(gallery.first)} alt="" /></a>
+          <a href={gallery.first} data-fancybox="gallery"><img src={gallery.first} alt="" /></a>
         </div>
         <div>
-          <a href={getImageLink(gallery.second)} data-fancybox="gallery"><img src={getImageLink(gallery.second)} alt="" /></a>
+          <a href={gallery.second} data-fancybox="gallery"><img src={gallery.second} alt="" /></a>
         </div>
         <div>
-          <a href={getImageLink(gallery.third)} data-fancybox="gallery"><img src={getImageLink(gallery.third)} alt="" /></a>
+          <a href={gallery.third} data-fancybox="gallery"><img src={gallery.third} alt="" /></a>
         </div>
       </GalleryBox>
     </Fancybox>
