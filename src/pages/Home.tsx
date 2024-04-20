@@ -1,6 +1,6 @@
 import Banner from "../components/Banners"
 import Bring from "../components/Bring"
-import Categories from "../components/Categories"
+import CategoriesAnimate from "../components/CategoriesAnimate"
 import HeadBanner from "../components/HeadBanner"
 
 const Home: React.FC = () => {
@@ -8,7 +8,7 @@ const Home: React.FC = () => {
     <>
       <HeadBanner type="banner" />
       <div className="container">
-        <Categories />
+        <CategoriesAnimate />
         <Banner />
         <Bring />
       </div>

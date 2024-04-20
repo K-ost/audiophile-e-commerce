@@ -7,9 +7,9 @@ import Skelet from "../components/Skelet"
 import Card from "../components/Card"
 import Gallery from "../components/Gallery"
 import Description from "../components/Description"
-import Categories from "../components/Categories"
 import Bring from "../components/Bring"
 import Others from "../components/Others"
+import CategoriesAnimate from "../components/CategoriesAnimate"
 
 const Product: React.FC = () => {
   const { product } = useParams()
@@ -32,7 +32,7 @@ const Product: React.FC = () => {
           <Others others={el.others} />
         </>}
 
-        <Categories />
+        <CategoriesAnimate />
 
         <Bring />
 

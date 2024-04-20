@@ -1,11 +1,11 @@
 import { useParams } from "react-router-dom"
 import HeadBanner from "../components/HeadBanner"
 import Bring from "../components/Bring"
-import Categories from "../components/Categories"
 import getData from "../helpers/getData"
 import Card from "../components/Card"
 import { ProductType } from "../types"
 import Skelet from "../components/Skelet"
+import CategoriesAnimate from "../components/CategoriesAnimate"
 
 const Category: React.FC = () => {
   const { cat } = useParams()
@@ -25,7 +25,7 @@ const Category: React.FC = () => {
           })}
         </div>
 
-        <Categories />
+        <CategoriesAnimate />
 
         <Bring />
       </div>

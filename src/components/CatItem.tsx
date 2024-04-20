@@ -4,9 +4,10 @@ import MoreBtn from "../ui/MoreBtn"
 import { getImageLink } from "../helpers/utils"
 
 interface ICatItem {
+  animated?: boolean
   delay?: number
   img: any
-  isInView: boolean
+  isInView?: boolean
   link: string
   title: string
 }
@@ -43,14 +44,14 @@ const ItemImg = styled.div`
   }
 `
 
-const CatItem: React.FC<ICatItem> = ({ img, isInView, link, title, delay }) => {
+const CatItem: React.FC<ICatItem> = ({ animated = false, img, isInView = false, link, title, delay }) => {
   return (
-    <Item style={{
+    <Item style={animated ? {
       transform: isInView ? "none" : "translateY(50px)",
       opacity: isInView ? 1 : 0,
       transition: "all 0.7s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
       transitionDelay: `${delay}ms`
-    }}>
+    } : undefined}>
       <ItemImg>
         <img src={getImageLink(img)} alt="" />
       </ItemImg>
