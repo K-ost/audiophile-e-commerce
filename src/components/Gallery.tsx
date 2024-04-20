@@ -1,6 +1,5 @@
 import styled from "styled-components"
 import { GalleryType } from "../types"
-import Fancybox from "../helpers/Fancybox"
 
 interface IGallery {
   gallery: GalleryType
@@ -31,27 +30,17 @@ const GalleryBox = styled.div`
 
 const Gallery: React.FC<IGallery> = ({ gallery }) => {
   return (
-    <Fancybox options={{
-      Carousel: {
-        infinite: false,
-      },
-      Toolbar: false,
-      Thumbs: {
-        type: "classic",
-      },
-    }}>
-      <GalleryBox className="grid grid-12 grid-mb-1">
-        <div>
-          <a href={gallery.first} data-fancybox="gallery"><img src={gallery.first} alt="" /></a>
-        </div>
-        <div>
-          <a href={gallery.second} data-fancybox="gallery"><img src={gallery.second} alt="" /></a>
-        </div>
-        <div>
-          <a href={gallery.third} data-fancybox="gallery"><img src={gallery.third} alt="" /></a>
-        </div>
-      </GalleryBox>
-    </Fancybox>
+    <GalleryBox className="grid grid-12 grid-mb-1">
+      <div>
+        <img src={gallery.first} alt="" />
+      </div>
+      <div>
+        <img src={gallery.second} alt="" />
+      </div>
+      <div>
+        <img src={gallery.third} alt="" />
+      </div>
+    </GalleryBox>
   )
 }
 
