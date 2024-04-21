@@ -106,6 +106,7 @@ Error generating stack: `+o.message+`
   }
   @media screen and (max-width: 750px) {
     margin: 0 0 96px;
+    .grid-mb-1 { grid-row-gap: 0; }
   }
 `,Ji=L.div`
   color: var(--color-black);
