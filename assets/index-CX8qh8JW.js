@@ -269,7 +269,7 @@ Error generating stack: `+o.message+`
   @media screen and (max-width: 750px) {
     margin: 0 0 var(--margin);
   }
-`,ef=()=>{const e=E.useRef(null),t=Zi(e,{once:!0,amount:"all"});return p.jsx(g4,{ref:e,children:p.jsx(Rv,{isInView:t,animated:!0})})},y4=""+new URL("xx99-DhSqG8cu.png",import.meta.url).href,_v=L.ul`
+`,ef=()=>{const e=E.useRef(null),t=Zi(e,{once:!0,amount:"some"});return p.jsx(g4,{ref:e,children:p.jsx(Rv,{isInView:t,animated:!0})})},y4=""+new URL("xx99-DhSqG8cu.png",import.meta.url).href,_v=L.ul`
   display: flex;
   margin: 0;
   padding: 0;
