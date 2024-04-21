@@ -17,7 +17,7 @@ const Cats = styled.div`
 
 const CategoriesAnimate: React.FC = () => {
   const ref = useRef<HTMLDivElement>(null)
-  const isInView = useInView(ref, { once: true, amount: 'all' })
+  const isInView = useInView(ref, { once: true, amount: 'some' })
 
   return (
     <Cats ref={ref}>
