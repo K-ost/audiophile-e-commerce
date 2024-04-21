@@ -22,6 +22,7 @@ const Wrap = styled.div`
   }
   @media screen and (max-width: 750px) {
     margin: 0 0 96px;
+    .grid-mb-1 { grid-row-gap: 0; }
   }
 `
 const BoxTitle = styled.div<{ $size: SizeBannerType }>`
